@@ -1,0 +1,84 @@
+---
+title: "Basic example"
+format: html
+---
+
+## Set up
+
+```{r}
+library(bamboo)
+```
+
+## Data import
+
+```{r}
+data(production)
+```
+
+## Panel data structure analysis
+
+```{r}
+describe_dimensions(production, index = c("firm", "year"))
+```
+
+```{r}
+describe_balance(production, index = c("firm", "year"))
+```
+
+```{r}
+describe_periods(production, index = c("firm", "year"))
+```
+
+```{r}
+plot_periods(production, index = c("firm", "year"))
+```
+
+```{r}
+describe_patterns(production, index = c("firm", "year"))
+```
+
+```{r}
+plot_patterns(production, index = c("firm", "year"))
+```
+
+## Missing values analysis
+
+```{r}
+plot_missing(production, index = c("firm", "year"))
+```
+
+```{r}
+summarize_missing(production, index = c("firm", "year"))
+```
+
+```{r}
+describe_incomplete(production, index = "firm")
+```
+
+## Numeric variables analysis
+
+```{r}
+summarize_numeric(production)
+```
+
+```{r}
+summarize_numeric(production, group = "year")
+```
+
+```{r}
+plot_heterogeneity(production, select = "sales", group = "year")
+```
+
+```{r}
+decompose_numeric(production, index = "firm")
+```
+
+## Factor variables analysis
+
+```{r}
+decompose_factor(production, index = "firm")
+```
+
+```{r}
+summarize_transition(production, select = "industry", index = c("firm", "year"))
+```

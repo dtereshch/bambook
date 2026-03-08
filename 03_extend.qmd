@@ -1,0 +1,103 @@
+---
+title: "Extended example"
+format: html
+---
+
+## Set up
+
+```{r}
+library(bamboo)
+```
+
+## Data import
+
+```{r}
+data(production)
+panel <- make_panel(production, index = c("firm", "year"), delta = 1)
+```
+
+## Panel data structure analysis
+
+```{r}
+describe_balance(panel, detail = TRUE, digits = 2)
+```
+
+```{r}
+describe_periods(panel, digits = 2)
+```
+
+```{r}
+plot_periods(panel, colors = c("gray", "black"))
+```
+
+```{r}
+describe_patterns(panel, limits = 3, digits = 2)
+```
+
+```{r}
+plot_patterns(panel, limits = c(4, 6), colors = c("darkgray", "white"))
+```
+
+## Missing values analysis
+
+```{r}
+plot_missing(
+  panel,
+  select = c("labor", "capital"),
+  colors = c("black", "white")
+)
+```
+
+```{r}
+summarize_missing(
+  panel,
+  select = c("labor", "capital"),
+  detail = TRUE,
+  digits = 2
+)
+```
+
+```{r}
+describe_incomplete(panel, detail = TRUE)
+```
+
+## Numeric variables analysis
+
+```{r}
+summarize_numeric(
+  panel,
+  select = c("sales", "labor"),
+  group = "year",
+  detail = TRUE,
+  digits = 2
+)
+```
+
+```{r}
+plot_heterogeneity(
+  panel,
+  select = "sales",
+  group = c("firm", "industry", "year"),
+  colors = c("black", "gray")
+)
+```
+
+```{r}
+decompose_numeric(
+  panel,
+  select = c("sales", "labor"),
+  detail = FALSE,
+  format = "wide",
+  digits = 2
+)
+```
+
+## Factor variables analysis
+
+```{r}
+decompose_factor(panel, select = "industry", format = "long", digits = 2)
+```
+
+```{r}
+summarize_transition(panel, select = "industry", format = "long", digits = 2)
+```

@@ -1,0 +1,38 @@
+---
+title: "First steps"
+format: html
+---
+
+The package can be installed from GitHub using \`devtools\`.
+
+```{r, eval=FALSE}
+library(devtools)
+install_github("dtereshch/bamboo") 
+```
+
+After that, you can import it in the usual way.
+
+```{r}
+library(bamboo)
+```
+
+All functions of the package have detailed documentation with examples.
+
+```{r, eval=FALSE}
+?decompose_factor
+?decompose_numeric
+?describe_balance
+?describe_dimensions
+?describe_incomplete
+?describe_patterns
+?describe_periods
+?make_panel
+?plot_heterogeneity
+?plot_missing
+?plot_patterns
+?plot_periods
+?production
+?summarize_missing
+?summarize_numeric
+?summarize_transition
+```

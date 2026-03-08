@@ -1,0 +1,85 @@
+---
+title: "Example with 'panel_data' object"
+format: html
+---
+
+## Set up
+
+```{r}
+library(bamboo)
+```
+
+## Data import
+
+```{r}
+data(production)
+production <- make_panel(production, index = c("firm", "year"))
+```
+
+## Panel data structure analysis
+
+```{r}
+describe_dimensions(production)
+```
+
+```{r}
+describe_balance(production)
+```
+
+```{r}
+describe_periods(production)
+```
+
+```{r}
+plot_periods(production)
+```
+
+```{r}
+describe_patterns(production)
+```
+
+```{r}
+plot_patterns(production)
+```
+
+## Missing values analysis
+
+```{r}
+plot_missing(production)
+```
+
+```{r}
+summarize_missing(production)
+```
+
+```{r}
+describe_incomplete(production)
+```
+
+## Numeric variables analysis
+
+```{r}
+summarize_numeric(production)
+```
+
+```{r}
+summarize_numeric(production, group = "year")
+```
+
+```{r}
+plot_heterogeneity(production, select = "sales")
+```
+
+```{r}
+decompose_numeric(production)
+```
+
+## Factor variables analysis
+
+```{r}
+decompose_factor(production)
+```
+
+```{r}
+summarize_transition(production, select = "industry")
+```

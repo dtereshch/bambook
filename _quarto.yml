@@ -1,0 +1,22 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "bambook: bamboo package howtos"
+  author: Dmitrii Tereshchenko
+  chapters:
+    - index.qmd
+    - 00_start.qmd
+    - 01_basic.qmd
+    - 02_panel.qmd
+    - 03_extend.qmd
+
+
+format:
+  html:
+    theme: flatly
+    toc: true
+
+editor: visual
+
