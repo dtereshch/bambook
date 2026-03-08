@@ -14,7 +14,7 @@
     "href": "00_start.html",
     "title": "2  First steps",
     "section": "",
-    "text": "The package can be installed from GitHub using `devtools`.\n\nlibrary(devtools)\ninstall_github(\"dtereshch/bamboo\") \n\nAfter that, you can import it in the usual way.\n\nlibrary(bamboo)\n\nAll functions of the package have detailed documentation with examples.\n\n?decompose_factor\n?decompose_numeric\n?describe_balance\n?describe_dimensions\n?describe_incomplete\n?describe_patterns\n?describe_periods\n?make_panel\n?plot_heterogeneity\n?plot_missing\n?plot_patterns\n?plot_periods\n?production\n?summarize_missing\n?summarize_numeric\n?summarize_transition",
+    "text": "The package can be installed from GitHub using devtools.\n\nlibrary(devtools)\ninstall_github(\"dtereshch/bamboo\") \n\nAfter that, you can import it in the usual way.\n\nlibrary(bamboo)\n\nAll functions of the package have detailed documentation with examples.\n\n?decompose_factor\n?decompose_numeric\n?describe_balance\n?describe_dimensions\n?describe_incomplete\n?describe_patterns\n?describe_periods\n?make_panel\n?plot_heterogeneity\n?plot_missing\n?plot_patterns\n?plot_periods\n?production\n?summarize_missing\n?summarize_numeric\n?summarize_transition",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>First steps</span>"
     ]
@@ -24,7 +24,7 @@
     "href": "01_basic.html",
     "title": "3  Basic example",
     "section": "",
-    "text": "3.1 Set up\nlibrary(bamboo)",
+    "text": "3.1 Set up\nBelow is an example showing the basic usage of all the package’s functions.\nImport the package.\nlibrary(bamboo)",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Basic example</span>"
     ]
@@ -34,7 +34,7 @@
     "href": "01_basic.html#data-import",
     "title": "3  Basic example",
     "section": "3.2 Data import",
-    "text": "3.2 Data import\n\ndata(production)",
+    "text": "3.2 Data import\nImport the built-in dataset with simulated unbalanced panel data.\n\ndata(production)",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Basic example</span>"
     ]
@@ -82,61 +82,61 @@
   {
     "objectID": "02_panel.html",
     "href": "02_panel.html",
-    "title": "4  Example with ‘panel_data’ object",
+    "title": "4  Smart example",
     "section": "",
-    "text": "4.1 Set up\nlibrary(bamboo)",
+    "text": "4.1 Set up\nAlmost all of the package’s functions require full or partial specification of a panel structure. To avoid repeating the same steps over and over again, the package allows you to pre-define the panel structure. Examples shown below are simplified by this approach.\nImport the package.\nlibrary(bamboo)",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Example with 'panel_data' object</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Smart example</span>"
     ]
   },
   {
     "objectID": "02_panel.html#data-import",
     "href": "02_panel.html#data-import",
-    "title": "4  Example with ‘panel_data’ object",
+    "title": "4  Smart example",
     "section": "4.2 Data import",
-    "text": "4.2 Data import\n\ndata(production)\nproduction &lt;- make_panel(production, index = c(\"firm\", \"year\"))",
+    "text": "4.2 Data import\nImport the built-in dataset with simulated unbalanced panel data.\n\ndata(production)\n\nSet up a panel structure in advance so that you don’t have to do it later each time you use other functions.\n\npanel &lt;- make_panel(production, index = c(\"firm\", \"year\"))",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Example with 'panel_data' object</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Smart example</span>"
     ]
   },
   {
     "objectID": "02_panel.html#panel-data-structure-analysis",
     "href": "02_panel.html#panel-data-structure-analysis",
-    "title": "4  Example with ‘panel_data’ object",
+    "title": "4  Smart example",
     "section": "4.3 Panel data structure analysis",
-    "text": "4.3 Panel data structure analysis\n\ndescribe_dimensions(production)\n\n  dimension count\n1  entities    30\n2   periods     6\n3      rows   180\n4 variables     4\n\n\n\ndescribe_balance(production)\n\n  dimension   mean   std min max\n1  entities 26.167 3.971  19  30\n2   periods  5.233 0.935   3   6\n\n\n\ndescribe_periods(production)\n\n  year count share\n1    1    25 0.833\n2    2    28 0.933\n3    3    30 1.000\n4    4    29 0.967\n5    5    26 0.867\n6    6    19 0.633\n\n\n\nplot_periods(production)\n\n\n\n\n\n\n\n\n\ndescribe_patterns(production)\n\n  pattern 1 2 3 4 5 6 count share\n1       1 1 1 1 1 1 1    16 0.533\n2       2 1 1 1 1 1 0     5 0.167\n3       3 1 1 1 1 0 0     3 0.100\n4       4 0 0 1 1 1 1     2 0.067\n5       5 0 1 1 1 1 0     2 0.067\n6       6 0 1 1 1 1 1     1 0.033\n7       7 1 1 1 0 0 0     1 0.033\n\n\n\nplot_patterns(production)",
+    "text": "4.3 Panel data structure analysis\n\ndescribe_dimensions(panel)\n\n  dimension count\n1  entities    30\n2   periods     6\n3      rows   180\n4 variables     4\n\n\n\ndescribe_balance(panel)\n\n  dimension   mean   std min max\n1  entities 26.167 3.971  19  30\n2   periods  5.233 0.935   3   6\n\n\n\ndescribe_periods(panel)\n\n  year count share\n1    1    25 0.833\n2    2    28 0.933\n3    3    30 1.000\n4    4    29 0.967\n5    5    26 0.867\n6    6    19 0.633\n\n\n\nplot_periods(panel)\n\n\n\n\n\n\n\n\n\ndescribe_patterns(panel)\n\n  pattern 1 2 3 4 5 6 count share\n1       1 1 1 1 1 1 1    16 0.533\n2       2 1 1 1 1 1 0     5 0.167\n3       3 1 1 1 1 0 0     3 0.100\n4       4 0 0 1 1 1 1     2 0.067\n5       5 0 1 1 1 1 0     2 0.067\n6       6 0 1 1 1 1 1     1 0.033\n7       7 1 1 1 0 0 0     1 0.033\n\n\n\nplot_patterns(panel)",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Example with 'panel_data' object</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Smart example</span>"
     ]
   },
   {
     "objectID": "02_panel.html#missing-values-analysis",
     "href": "02_panel.html#missing-values-analysis",
-    "title": "4  Example with ‘panel_data’ object",
+    "title": "4  Smart example",
     "section": "4.4 Missing values analysis",
-    "text": "4.4 Missing values analysis\n\nplot_missing(production)\n\nAnalysing all variables: industry, sales, capital, labor\n\n\n\n\n\n\n\n\n\n\nsummarize_missing(production)\n\nAnalyzing all variables: industry, sales, capital, labor\n\n\n  variable na_count na_share entities periods\n1 industry       23    0.128       14       5\n2    sales       26    0.144       15       5\n3  capital       26    0.144       17       5\n4    labor       26    0.144       16       6\n\n\n\ndescribe_incomplete(production)\n\n   firm na_count variables\n1    23       12         4\n2    21        9         4\n3     1        8         4\n4     2        8         4\n5     6        8         4\n6     7        8         4\n7    12        8         4\n8    26        8         4\n9    25        5         4\n10   30        5         4\n11    4        4         4\n12   13        4         4\n13   17        4         4\n14   29        4         4\n15    8        2         2\n16    3        1         1\n17   10        1         1\n18   14        1         1\n19   24        1         1",
+    "text": "4.4 Missing values analysis\n\nplot_missing(panel)\n\nAnalysing all variables: industry, sales, capital, labor\n\n\n\n\n\n\n\n\n\n\nsummarize_missing(panel)\n\nAnalyzing all variables: industry, sales, capital, labor\n\n\n  variable na_count na_share entities periods\n1 industry       23    0.128       14       5\n2    sales       26    0.144       15       5\n3  capital       26    0.144       17       5\n4    labor       26    0.144       16       6\n\n\n\ndescribe_incomplete(panel)\n\n   firm na_count variables\n1    23       12         4\n2    21        9         4\n3     1        8         4\n4     2        8         4\n5     6        8         4\n6     7        8         4\n7    12        8         4\n8    26        8         4\n9    25        5         4\n10   30        5         4\n11    4        4         4\n12   13        4         4\n13   17        4         4\n14   29        4         4\n15    8        2         2\n16    3        1         1\n17   10        1         1\n18   14        1         1\n19   24        1         1",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Example with 'panel_data' object</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Smart example</span>"
     ]
   },
   {
     "objectID": "02_panel.html#numeric-variables-analysis",
     "href": "02_panel.html#numeric-variables-analysis",
-    "title": "4  Example with ‘panel_data’ object",
+    "title": "4  Smart example",
     "section": "4.5 Numeric variables analysis",
-    "text": "4.5 Numeric variables analysis\n\nsummarize_numeric(production)\n\nAnalyzing all numeric variables: sales, capital, labor\n\n\n  variable count   mean    std   min     max\n1    sales   154 69.756 46.804 8.321 336.853\n2  capital   154 32.490 31.053 0.968 194.719\n3    labor   154 79.329 73.687 4.097 419.848\n\n\n\nsummarize_numeric(production, group = \"year\")\n\nAnalyzing all numeric variables: sales, capital, labor\n\n\n   year variable count   mean     std    min     max\n1     1    sales    25 58.491  44.590  8.321 190.100\n2     1  capital    24 24.862  16.273  0.968  65.950\n3     1    labor    25 68.871  66.941  4.097 246.852\n4     2    sales    28 56.099  37.944 17.803 186.349\n5     2  capital    27 28.790  31.053  3.150 151.464\n6     2    labor    27 60.463  48.484 11.692 222.761\n7     3    sales    30 76.660  47.574 20.580 219.513\n8     3  capital    30 35.464  39.174  4.729 194.719\n9     3    labor    29 90.437  82.628  9.284 414.844\n10    4    sales    28 73.104  33.238 19.455 135.118\n11    4  capital    29 44.522  35.375  5.080 132.898\n12    4    labor    29 73.967  54.005 16.327 240.726\n13    5    sales    24 75.398  43.091 20.161 211.092\n14    5  capital    25 28.351  23.127  5.339  86.078\n15    5    labor    26 90.604  85.026 21.063 413.784\n16    6    sales    19 81.744  73.320 20.352 336.853\n17    6  capital    19 29.767  30.908  2.288 108.787\n18    6    labor    18 96.609 103.777 20.507 419.848\n\n\n\nplot_heterogeneity(production, select = \"sales\")\n\n\n\n\n\n\n\n\n\ndecompose_numeric(production)\n\nAnalyzing all numeric variables: sales, capital, labor\n\n\n  variable dimension   mean    std     min     max   count\n1    sales   overall 69.756 46.804   8.321 336.853 154.000\n2    sales   between     NA 29.776  25.772 159.197  30.000\n3    sales    within     NA 35.862 -28.397 247.412   5.133\n4  capital   overall 32.490 31.053   0.968 194.719 154.000\n5  capital   between     NA 13.969   8.671  75.083  30.000\n6  capital    within     NA 27.701 -22.444 152.126   5.133\n7    labor   overall 79.329 73.687   4.097 419.848 154.000\n8    labor   between     NA 44.023  24.606 175.731  30.000\n9    labor    within     NA 59.561 -77.709 323.445   5.133",
+    "text": "4.5 Numeric variables analysis\n\nsummarize_numeric(panel)\n\nAnalyzing all numeric variables: sales, capital, labor\n\n\n  variable count   mean    std   min     max\n1    sales   154 69.756 46.804 8.321 336.853\n2  capital   154 32.490 31.053 0.968 194.719\n3    labor   154 79.329 73.687 4.097 419.848\n\n\n\nsummarize_numeric(panel, group = \"year\")\n\nAnalyzing all numeric variables: sales, capital, labor\n\n\n   year variable count   mean     std    min     max\n1     1    sales    25 58.491  44.590  8.321 190.100\n2     1  capital    24 24.862  16.273  0.968  65.950\n3     1    labor    25 68.871  66.941  4.097 246.852\n4     2    sales    28 56.099  37.944 17.803 186.349\n5     2  capital    27 28.790  31.053  3.150 151.464\n6     2    labor    27 60.463  48.484 11.692 222.761\n7     3    sales    30 76.660  47.574 20.580 219.513\n8     3  capital    30 35.464  39.174  4.729 194.719\n9     3    labor    29 90.437  82.628  9.284 414.844\n10    4    sales    28 73.104  33.238 19.455 135.118\n11    4  capital    29 44.522  35.375  5.080 132.898\n12    4    labor    29 73.967  54.005 16.327 240.726\n13    5    sales    24 75.398  43.091 20.161 211.092\n14    5  capital    25 28.351  23.127  5.339  86.078\n15    5    labor    26 90.604  85.026 21.063 413.784\n16    6    sales    19 81.744  73.320 20.352 336.853\n17    6  capital    19 29.767  30.908  2.288 108.787\n18    6    labor    18 96.609 103.777 20.507 419.848\n\n\n\nplot_heterogeneity(panel, select = \"sales\")\n\n\n\n\n\n\n\n\n\ndecompose_numeric(panel)\n\nAnalyzing all numeric variables: sales, capital, labor\n\n\n  variable dimension   mean    std     min     max   count\n1    sales   overall 69.756 46.804   8.321 336.853 154.000\n2    sales   between     NA 29.776  25.772 159.197  30.000\n3    sales    within     NA 35.862 -28.397 247.412   5.133\n4  capital   overall 32.490 31.053   0.968 194.719 154.000\n5  capital   between     NA 13.969   8.671  75.083  30.000\n6  capital    within     NA 27.701 -22.444 152.126   5.133\n7    labor   overall 79.329 73.687   4.097 419.848 154.000\n8    labor   between     NA 44.023  24.606 175.731  30.000\n9    labor    within     NA 59.561 -77.709 323.445   5.133",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Example with 'panel_data' object</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Smart example</span>"
     ]
   },
   {
     "objectID": "02_panel.html#factor-variables-analysis",
     "href": "02_panel.html#factor-variables-analysis",
-    "title": "4  Example with ‘panel_data’ object",
+    "title": "4  Smart example",
     "section": "4.6 Factor variables analysis",
-    "text": "4.6 Factor variables analysis\n\ndecompose_factor(production)\n\nAnalyzing all factor variables: industry\n\n\n  variable   category count_overall share_overall count_between share_between\n1 industry Industry 1            63         0.401            13         0.433\n2 industry Industry 2            45         0.287            11         0.367\n3 industry Industry 3            49         0.312            10         0.333\n  share_within\n1        0.918\n2        0.809\n3        0.917\n\n\n\nsummarize_transition(production, select = \"industry\")\n\n23 rows with NA values in 'industry' removed.\n\n\n     from_to Industry 1 Industry 2 Industry 3\n1 Industry 1          1      0.054      0.000\n2 Industry 2          0      0.919      0.025\n3 Industry 3          0      0.027      0.975",
+    "text": "4.6 Factor variables analysis\n\ndecompose_factor(panel)\n\nAnalyzing all factor variables: industry\n\n\n  variable   category count_overall share_overall count_between share_between\n1 industry Industry 1            63         0.401            13         0.433\n2 industry Industry 2            45         0.287            11         0.367\n3 industry Industry 3            49         0.312            10         0.333\n  share_within\n1        0.918\n2        0.809\n3        0.917\n\n\n\nsummarize_transition(panel, select = \"industry\")\n\n23 rows with NA values in 'industry' removed.\n\n\n     from_to Industry 1 Industry 2 Industry 3\n1 Industry 1          1      0.054      0.000\n2 Industry 2          0      0.919      0.025\n3 Industry 3          0      0.027      0.975",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Example with 'panel_data' object</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Smart example</span>"
     ]
   },
   {
@@ -144,7 +144,7 @@
     "href": "03_extend.html",
     "title": "5  Extended example",
     "section": "",
-    "text": "5.1 Set up\nlibrary(bamboo)",
+    "text": "5.1 Set up\nTypically, package functions include multiple arguments, the different values ​​of which allow for flexible configuration. Below are various examples demonstrating the package’s customization potential.\nImport the package.\nlibrary(bamboo)",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Extended example</span>"
     ]
@@ -154,7 +154,17 @@
     "href": "03_extend.html#data-import",
     "title": "5  Extended example",
     "section": "5.2 Data import",
-    "text": "5.2 Data import\n\ndata(production)\npanel &lt;- make_panel(production, index = c(\"firm\", \"year\"), delta = 1)",
+    "text": "5.2 Data import\nImport the built-in dataset with simulated unbalanced panel data.\n\ndata(production)\n\nSet up a panel structure in advance so that you don’t have to do it later each time you use other functions. Note that if delta is supplied, the function checks for omitted time periods. If such periods exist, they will be taken into account when other functions work with this argument.\n\npanel &lt;- make_panel(production, index = c(\"firm\", \"year\"), delta = 1)",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Extended example</span>"
+    ]
+  },
+  {
+    "objectID": "03_extend.html#creating-balanced-panel-data",
+    "href": "03_extend.html#creating-balanced-panel-data",
+    "title": "5  Extended example",
+    "section": "5.3 Creating balanced panel data",
+    "text": "5.3 Creating balanced panel data\nThe make_panel() function also allows to balance panel data using various options:\n\nkeep only entities present in all time periods;\n\n\nbalance_entities &lt;- make_panel(production, index = c(\"firm\", \"year\"), balance = \"entities\")\n\n\nkeep only time periods where all entities are present;\n\n\nbalance_periods &lt;- make_panel(production, index = c(\"firm\", \"year\"), balance = \"periods\")\n\n\ncreate a row for every entity‑time combination (if delta is supplied, the full time sequence including missing periods is used).\n\n\nbalance_rows &lt;- make_panel(production, index = c(\"firm\", \"year\"), delta = 1, balance = \"rows\")",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Extended example</span>"
     ]
@@ -163,8 +173,8 @@
     "objectID": "03_extend.html#panel-data-structure-analysis",
     "href": "03_extend.html#panel-data-structure-analysis",
     "title": "5  Extended example",
-    "section": "5.3 Panel data structure analysis",
-    "text": "5.3 Panel data structure analysis\n\ndescribe_balance(panel, detail = TRUE, digits = 2)\n\n  dimension  mean  std min   p5   p25 p50   p75   p95 max\n1  entities 26.17 3.97  19 20.5 25.25  27 28.75 29.75  30\n2   periods  5.23 0.94   3  4.0  4.25   6  6.00  6.00   6\n\n\n\ndescribe_periods(panel, digits = 2)\n\n  year count share\n1    1    25  0.83\n2    2    28  0.93\n3    3    30  1.00\n4    4    29  0.97\n5    5    26  0.87\n6    6    19  0.63\n\n\n\nplot_periods(panel, colors = c(\"gray\", \"black\"))\n\n\n\n\n\n\n\n\n\ndescribe_patterns(panel, limits = 3, digits = 2)\n\n  pattern 1 2 3 4 5 6 count share\n1       1 1 1 1 1 1 1    16  0.53\n2       2 1 1 1 1 1 0     5  0.17\n3       3 1 1 1 1 0 0     3  0.10\n\n\n\nplot_patterns(panel, limits = c(4, 6), colors = c(\"darkgray\", \"white\"))",
+    "section": "5.4 Panel data structure analysis",
+    "text": "5.4 Panel data structure analysis\n\ndescribe_balance(panel, detail = TRUE, digits = 2)\n\n  dimension  mean  std min   p5   p25 p50   p75   p95 max\n1  entities 26.17 3.97  19 20.5 25.25  27 28.75 29.75  30\n2   periods  5.23 0.94   3  4.0  4.25   6  6.00  6.00   6\n\n\n\ndescribe_periods(panel, digits = 2)\n\n  year count share\n1    1    25  0.83\n2    2    28  0.93\n3    3    30  1.00\n4    4    29  0.97\n5    5    26  0.87\n6    6    19  0.63\n\n\n\nplot_periods(panel, colors = c(\"gray\", \"black\"))\n\n\n\n\n\n\n\n\n\ndescribe_patterns(panel, limits = 3, digits = 2)\n\n  pattern 1 2 3 4 5 6 count share\n1       1 1 1 1 1 1 1    16  0.53\n2       2 1 1 1 1 1 0     5  0.17\n3       3 1 1 1 1 0 0     3  0.10\n\n\n\nplot_patterns(panel, limits = c(4, 6), colors = c(\"darkgray\", \"white\"))",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Extended example</span>"
     ]
@@ -173,8 +183,8 @@
     "objectID": "03_extend.html#missing-values-analysis",
     "href": "03_extend.html#missing-values-analysis",
     "title": "5  Extended example",
-    "section": "5.4 Missing values analysis",
-    "text": "5.4 Missing values analysis\n\nplot_missing(\n  panel,\n  select = c(\"labor\", \"capital\"),\n  colors = c(\"black\", \"white\")\n)\n\n\n\n\n\n\n\n\n\nsummarize_missing(\n  panel,\n  select = c(\"labor\", \"capital\"),\n  detail = TRUE,\n  digits = 2\n)\n\n  variable na_count na_share entities periods 1 2 3 4 5  6\n1    labor       26     0.14       16       6 5 3 1 1 4 12\n2  capital       26     0.14       17       5 6 3 0 1 5 11\n\n\n\ndescribe_incomplete(panel, detail = TRUE)\n\n   firm na_count variables industry sales capital labor\n1    23       12         4        3     3       3     3\n2    21        9         4        2     3       2     2\n3     1        8         4        2     2       2     2\n4     2        8         4        2     2       2     2\n5     6        8         4        2     2       2     2\n6     7        8         4        2     2       2     2\n7    12        8         4        2     2       2     2\n8    26        8         4        2     2       2     2\n9    25        5         4        1     1       1     2\n10   30        5         4        1     2       1     1\n11    4        4         4        1     1       1     1\n12   13        4         4        1     1       1     1\n13   17        4         4        1     1       1     1\n14   29        4         4        1     1       1     1\n15    8        2         2        0     0       1     1\n16    3        1         1        0     0       0     1\n17   10        1         1        0     0       1     0\n18   14        1         1        0     1       0     0\n19   24        1         1        0     0       1     0",
+    "section": "5.5 Missing values analysis",
+    "text": "5.5 Missing values analysis\n\nplot_missing(\n  panel,\n  select = c(\"labor\", \"capital\"),\n  colors = c(\"black\", \"white\")\n)\n\n\n\n\n\n\n\n\n\nsummarize_missing(\n  panel,\n  select = c(\"labor\", \"capital\"),\n  detail = TRUE,\n  digits = 2\n)\n\n  variable na_count na_share entities periods 1 2 3 4 5  6\n1    labor       26     0.14       16       6 5 3 1 1 4 12\n2  capital       26     0.14       17       5 6 3 0 1 5 11\n\n\n\ndescribe_incomplete(panel, detail = TRUE)\n\n   firm na_count variables industry sales capital labor\n1    23       12         4        3     3       3     3\n2    21        9         4        2     3       2     2\n3     1        8         4        2     2       2     2\n4     2        8         4        2     2       2     2\n5     6        8         4        2     2       2     2\n6     7        8         4        2     2       2     2\n7    12        8         4        2     2       2     2\n8    26        8         4        2     2       2     2\n9    25        5         4        1     1       1     2\n10   30        5         4        1     2       1     1\n11    4        4         4        1     1       1     1\n12   13        4         4        1     1       1     1\n13   17        4         4        1     1       1     1\n14   29        4         4        1     1       1     1\n15    8        2         2        0     0       1     1\n16    3        1         1        0     0       0     1\n17   10        1         1        0     0       1     0\n18   14        1         1        0     1       0     0\n19   24        1         1        0     0       1     0",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Extended example</span>"
     ]
@@ -183,8 +193,8 @@
     "objectID": "03_extend.html#numeric-variables-analysis",
     "href": "03_extend.html#numeric-variables-analysis",
     "title": "5  Extended example",
-    "section": "5.5 Numeric variables analysis",
-    "text": "5.5 Numeric variables analysis\n\nsummarize_numeric(\n  panel,\n  select = c(\"sales\", \"labor\"),\n  group = \"year\",\n  detail = TRUE,\n  digits = 2\n)\n\n   year variable count  mean    std   min   p25   p50    p75    max\n1     1    sales    25 58.49  44.59  8.32 26.36 44.74  74.58 190.10\n2     1    labor    25 68.87  66.94  4.10 20.88 39.44  96.76 246.85\n3     2    sales    28 56.10  37.94 17.80 31.87 40.78  73.49 186.35\n4     2    labor    27 60.46  48.48 11.69 30.04 45.41  69.00 222.76\n5     3    sales    30 76.66  47.57 20.58 42.90 70.74  96.91 219.51\n6     3    labor    29 90.44  82.63  9.28 40.92 62.88 114.85 414.84\n7     4    sales    28 73.10  33.24 19.46 46.96 72.90  99.39 135.12\n8     4    labor    29 73.97  54.00 16.33 34.23 58.99  96.46 240.73\n9     5    sales    24 75.40  43.09 20.16 43.47 70.76  95.08 211.09\n10    5    labor    26 90.60  85.03 21.06 35.90 73.02  99.07 413.78\n11    6    sales    19 81.74  73.32 20.35 41.90 67.33  85.09 336.85\n12    6    labor    18 96.61 103.78 20.51 37.10 55.89 111.35 419.85\n\n\n\nplot_heterogeneity(\n  panel,\n  select = \"sales\",\n  group = c(\"firm\", \"industry\", \"year\"),\n  colors = c(\"black\", \"gray\")\n)\n\n\n\n\n\n\n\n\n\ndecompose_numeric(\n  panel,\n  select = c(\"sales\", \"labor\"),\n  detail = FALSE,\n  format = \"wide\",\n  digits = 2\n)\n\n  variable  mean std_overall std_between std_within\n1    sales 69.76       46.80       29.78      35.86\n2    labor 79.33       73.69       44.02      59.56",
+    "section": "5.6 Numeric variables analysis",
+    "text": "5.6 Numeric variables analysis\n\nsummarize_numeric(\n  panel,\n  select = c(\"sales\", \"labor\"),\n  group = \"year\",\n  detail = TRUE,\n  digits = 2\n)\n\n   year variable count  mean    std   min   p25   p50    p75    max\n1     1    sales    25 58.49  44.59  8.32 26.36 44.74  74.58 190.10\n2     1    labor    25 68.87  66.94  4.10 20.88 39.44  96.76 246.85\n3     2    sales    28 56.10  37.94 17.80 31.87 40.78  73.49 186.35\n4     2    labor    27 60.46  48.48 11.69 30.04 45.41  69.00 222.76\n5     3    sales    30 76.66  47.57 20.58 42.90 70.74  96.91 219.51\n6     3    labor    29 90.44  82.63  9.28 40.92 62.88 114.85 414.84\n7     4    sales    28 73.10  33.24 19.46 46.96 72.90  99.39 135.12\n8     4    labor    29 73.97  54.00 16.33 34.23 58.99  96.46 240.73\n9     5    sales    24 75.40  43.09 20.16 43.47 70.76  95.08 211.09\n10    5    labor    26 90.60  85.03 21.06 35.90 73.02  99.07 413.78\n11    6    sales    19 81.74  73.32 20.35 41.90 67.33  85.09 336.85\n12    6    labor    18 96.61 103.78 20.51 37.10 55.89 111.35 419.85\n\n\n\nplot_heterogeneity(\n  panel,\n  select = \"sales\",\n  group = c(\"firm\", \"industry\", \"year\"),\n  colors = c(\"black\", \"gray\")\n)\n\n\n\n\n\n\n\n\n\ndecompose_numeric(\n  panel,\n  select = c(\"sales\", \"labor\"),\n  detail = FALSE,\n  format = \"wide\",\n  digits = 2\n)\n\n  variable  mean std_overall std_between std_within\n1    sales 69.76       46.80       29.78      35.86\n2    labor 79.33       73.69       44.02      59.56",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Extended example</span>"
     ]
@@ -193,8 +203,8 @@
     "objectID": "03_extend.html#factor-variables-analysis",
     "href": "03_extend.html#factor-variables-analysis",
     "title": "5  Extended example",
-    "section": "5.6 Factor variables analysis",
-    "text": "5.6 Factor variables analysis\n\ndecompose_factor(panel, select = \"industry\", format = \"long\", digits = 2)\n\n  variable   category dimension count share\n1 industry Industry 1   between    13  0.43\n2 industry Industry 2   between    11  0.37\n3 industry Industry 3   between    10  0.33\n4 industry Industry 1   overall    63  0.40\n5 industry Industry 2   overall    45  0.29\n6 industry Industry 3   overall    49  0.31\n7 industry Industry 1    within    NA  0.92\n8 industry Industry 2    within    NA  0.81\n9 industry Industry 3    within    NA  0.92\n\n\n\nsummarize_transition(panel, select = \"industry\", format = \"long\", digits = 2)\n\n23 rows with NA values in 'industry' removed.\n\n\n        from         to count share\n1 Industry 1 Industry 1    50  1.00\n2 Industry 1 Industry 2     0  0.00\n3 Industry 1 Industry 3     0  0.00\n4 Industry 2 Industry 1     2  0.05\n5 Industry 2 Industry 2    34  0.92\n6 Industry 2 Industry 3     1  0.03\n7 Industry 3 Industry 1     0  0.00\n8 Industry 3 Industry 2     1  0.03\n9 Industry 3 Industry 3    39  0.98",
+    "section": "5.7 Factor variables analysis",
+    "text": "5.7 Factor variables analysis\n\ndecompose_factor(panel, select = \"industry\", format = \"long\", digits = 2)\n\n  variable   category dimension count share\n1 industry Industry 1   between    13  0.43\n2 industry Industry 2   between    11  0.37\n3 industry Industry 3   between    10  0.33\n4 industry Industry 1   overall    63  0.40\n5 industry Industry 2   overall    45  0.29\n6 industry Industry 3   overall    49  0.31\n7 industry Industry 1    within    NA  0.92\n8 industry Industry 2    within    NA  0.81\n9 industry Industry 3    within    NA  0.92\n\n\n\nsummarize_transition(panel, select = \"industry\", format = \"long\", digits = 2)\n\n23 rows with NA values in 'industry' removed.\n\n\n        from         to count share\n1 Industry 1 Industry 1    50  1.00\n2 Industry 1 Industry 2     0  0.00\n3 Industry 1 Industry 3     0  0.00\n4 Industry 2 Industry 1     2  0.05\n5 Industry 2 Industry 2    34  0.92\n6 Industry 2 Industry 3     1  0.03\n7 Industry 3 Industry 1     0  0.00\n8 Industry 3 Industry 2     1  0.03\n9 Industry 3 Industry 3    39  0.98",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Extended example</span>"
     ]

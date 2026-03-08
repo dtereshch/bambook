@@ -3,13 +3,19 @@ title: "Basic example"
 format: html
 ---
 
+Below is an example showing the basic usage of all the package's functions.
+
 ## Set up
+
+Import the package.
 
 ```{r}
 library(bamboo)
 ```
 
 ## Data import
+
+Import the built-in dataset with simulated unbalanced panel data.
 
 ```{r}
 data(production)

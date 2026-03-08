@@ -3,7 +3,11 @@ title: "Extended example"
 format: html
 ---
 
+Typically, package functions include multiple arguments, the different values ​​of which allow for flexible configuration. Below are various examples demonstrating the package's customization potential.
+
 ## Set up
+
+Import the package.
 
 ```{r}
 library(bamboo)
@@ -11,9 +15,39 @@ library(bamboo)
 
 ## Data import
 
+Import the built-in dataset with simulated unbalanced panel data.
+
 ```{r}
 data(production)
+```
+
+Set up a panel structure in advance so that you don't have to do it later each time you use other functions.
+Note that if `delta` is supplied, the function checks for omitted time periods. If such periods exist, they will be taken into account when other functions work with this argument.
+
+```{r}
 panel <- make_panel(production, index = c("firm", "year"), delta = 1)
+```
+
+## Creating balanced panel data
+
+The `make_panel()` function also allows to balance panel data using various options:
+
+* keep only entities present in all time periods;
+
+```{r}
+balance_entities <- make_panel(production, index = c("firm", "year"), balance = "entities")
+```
+
+* keep only time periods where all entities are present;
+
+```{r}
+balance_periods <- make_panel(production, index = c("firm", "year"), balance = "periods")
+```
+
+* create a row for every entity‑time combination (if `delta` is supplied, the full time sequence including missing periods is used).
+
+```{r}
+balance_rows <- make_panel(production, index = c("firm", "year"), delta = 1, balance = "rows")
 ```
 
 ## Panel data structure analysis

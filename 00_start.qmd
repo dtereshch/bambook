@@ -3,7 +3,7 @@ title: "First steps"
 format: html
 ---
 
-The package can be installed from GitHub using \`devtools\`.
+The package can be installed from GitHub using `devtools`.
 
 ```{r, eval=FALSE}
 library(devtools)

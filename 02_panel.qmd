@@ -1,9 +1,13 @@
 ---
-title: "Example with 'panel_data' object"
+title: "Smart example"
 format: html
 ---
 
+Almost all of the package's functions require full or partial specification of a panel structure. To avoid repeating the same steps over and over again, the package allows you to pre-define the panel structure. Examples shown below are simplified by this approach.
+
 ## Set up
+
+Import the package.
 
 ```{r}
 library(bamboo)
@@ -11,75 +15,82 @@ library(bamboo)
 
 ## Data import
 
+Import the built-in dataset with simulated unbalanced panel data.
+
 ```{r}
 data(production)
-production <- make_panel(production, index = c("firm", "year"))
+```
+
+Set up a panel structure in advance so that you don't have to do it later each time you use other functions.
+
+```{r}
+panel <- make_panel(production, index = c("firm", "year"))
 ```
 
 ## Panel data structure analysis
 
 ```{r}
-describe_dimensions(production)
+describe_dimensions(panel)
 ```
 
 ```{r}
-describe_balance(production)
+describe_balance(panel)
 ```
 
 ```{r}
-describe_periods(production)
+describe_periods(panel)
 ```
 
 ```{r}
-plot_periods(production)
+plot_periods(panel)
 ```
 
 ```{r}
-describe_patterns(production)
+describe_patterns(panel)
 ```
 
 ```{r}
-plot_patterns(production)
+plot_patterns(panel)
 ```
 
 ## Missing values analysis
 
 ```{r}
-plot_missing(production)
+plot_missing(panel)
 ```
 
 ```{r}
-summarize_missing(production)
+summarize_missing(panel)
 ```
 
 ```{r}
-describe_incomplete(production)
+describe_incomplete(panel)
 ```
 
 ## Numeric variables analysis
 
 ```{r}
-summarize_numeric(production)
+summarize_numeric(panel)
 ```
 
 ```{r}
-summarize_numeric(production, group = "year")
+summarize_numeric(panel, group = "year")
 ```
 
 ```{r}
-plot_heterogeneity(production, select = "sales")
+plot_heterogeneity(panel, select = "sales")
 ```
 
 ```{r}
-decompose_numeric(production)
+decompose_numeric(panel)
 ```
 
 ## Factor variables analysis
 
 ```{r}
-decompose_factor(production)
+decompose_factor(panel)
 ```
 
 ```{r}
-summarize_transition(production, select = "industry")
+summarize_transition(panel, select = "industry")
 ```
