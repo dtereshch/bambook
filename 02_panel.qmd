@@ -59,13 +59,19 @@ plot_patterns(panel)
 
 The second group of functions is aimed at analyzing missing values, taking into account the nature of panel data.
 
+You can create a heatmap showing the number of missing values for each variable across all time periods. 
+
 ```{r}
 plot_missing(panel)
 ```
 
+Also, you can output the table with brief summary statistics on missing values. 
+
 ```{r}
 summarize_missing(panel)
 ```
+
+In addition, you can compare missing values statistics across various entities. 
 
 ```{r}
 describe_incomplete(panel)
@@ -75,17 +81,25 @@ describe_incomplete(panel)
 
 The third group of functions is aimed at analyzing numeric variables, taking into account the nature of panel data.
 
+If you need to, you can output a table with simple descriptive statistics.
+
 ```{r}
 summarize_numeric(panel)
 ```
+
+Descriptive statistics can be grouped by some variable, which does not necessarily have to be a panel identifier.
 
 ```{r}
 summarize_numeric(panel, group = "year")
 ```
 
+Heterogeneity between different groups can also be visualized.
+
 ```{r}
 plot_heterogeneity(panel, select = "sales")
 ```
+
+For more detailed heterogeneity analysis, numeric variables can be decomposed into between and within components.
 
 ```{r}
 decompose_numeric(panel)
@@ -95,9 +109,13 @@ decompose_numeric(panel)
 
 The last group of functions is aimed at analyzing numeric variables, taking into account the nature of panel data.
 
+Factor variables can be decomposed into between and within components. 
+
 ```{r}
 decompose_factor(panel)
 ```
+
+One can also summarize transitions between states of a categorical (factor) variable.
 
 ```{r}
 summarize_transition(panel, select = "industry")

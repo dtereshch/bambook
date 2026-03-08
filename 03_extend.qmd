@@ -32,19 +32,19 @@ panel <- make_panel(production, index = c("firm", "year"), delta = 1)
 
 The `make_panel()` function also allows to balance panel data using various options:
 
-* keep only entities present in all time periods;
+* keeping only entities present in all time periods;
 
 ```{r}
 balance_entities <- make_panel(production, index = c("firm", "year"), balance = "entities")
 ```
 
-* keep only time periods where all entities are present;
+* keeping only time periods where all entities are present;
 
 ```{r}
 balance_periods <- make_panel(production, index = c("firm", "year"), balance = "periods")
 ```
 
-* create a row for every entity‑time combination (if `delta` is supplied, the full time sequence including missing periods is used).
+* creating a row for every entity‑time combination (if `delta` is supplied, the full time sequence including missing periods is used).
 
 ```{r}
 balance_rows <- make_panel(production, index = c("firm", "year"), delta = 1, balance = "rows")
@@ -78,6 +78,8 @@ plot_patterns(panel, limits = c(4, 6), colors = c("darkgray", "white"))
 
 The second group of functions is aimed at analyzing missing values, taking into account the nature of panel data.
 
+`plot_missing()` allows to select specific variables to analyze. One can also customize colors. 
+
 ```{r}
 plot_missing(
   panel,
@@ -85,6 +87,8 @@ plot_missing(
   colors = c("black", "white")
 )
 ```
+
+`summarize_missing()` also allows to select specific variables to analyze. In addition, it can provide more detailed table by adding period-specific missing value counts. One can also customize rounding. 
 
 ```{r}
 summarize_missing(
@@ -95,6 +99,8 @@ summarize_missing(
 )
 ```
 
+`describe_incomplete()` can provide more detailed table by adding variable-specific missing value counts.
+
 ```{r}
 describe_incomplete(panel, detail = TRUE)
 ```
@@ -102,6 +108,8 @@ describe_incomplete(panel, detail = TRUE)
 ## Numeric variables analysis
 
 The third group of functions is aimed at analyzing numeric variables, taking into account the nature of panel data.
+
+`summarize_numeric()` allows to select specific variables to analyze. It also can provide additional statisitcs. Custom rounding is also available. 
 
 ```{r}
 summarize_numeric(
@@ -113,6 +121,8 @@ summarize_numeric(
 )
 ```
 
+`plot_heterogeneity()` allows to choose several grouping variables. One can also customize colors. 
+
 ```{r}
 plot_heterogeneity(
   panel,
@@ -121,6 +131,8 @@ plot_heterogeneity(
   colors = c("black", "gray")
 )
 ```
+
+`decompose_numeric()` allows to select specific varibles to analyze. One also can output the resulting table in wide format and hide redundant details, as well as customize rounding. 
 
 ```{r}
 decompose_numeric(
@@ -135,6 +147,8 @@ decompose_numeric(
 ## Factor variables analysis
 
 The last group of functions is aimed at analyzing numeric variables, taking into account the nature of panel data.
+
+Compared to the default settings, both functions can output the resulting table in long format and also allow to customize rounding. `descompose_factor()` also allows to select specific variables to analyze.
 
 ```{r}
 decompose_factor(panel, select = "industry", format = "long", digits = 2)

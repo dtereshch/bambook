@@ -236,19 +236,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="5.3" class="anchored" data-anchor-id="creating-balanced-panel-data"><span class="header-section-number">5.3</span> Creating balanced panel data</h2>
 <p>The <code>make_panel()</code> function also allows to balance panel data using various options:</p>
 <ul>
-<li>keep only entities present in all time periods;</li>
+<li>keeping only entities present in all time periods;</li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>balance_entities <span class="ot">&lt;-</span> <span class="fu">make_panel</span>(production, <span class="at">index =</span> <span class="fu">c</span>(<span class="st">"firm"</span>, <span class="st">"year"</span>), <span class="at">balance =</span> <span class="st">"entities"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
-<li>keep only time periods where all entities are present;</li>
+<li>keeping only time periods where all entities are present;</li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>balance_periods <span class="ot">&lt;-</span> <span class="fu">make_panel</span>(production, <span class="at">index =</span> <span class="fu">c</span>(<span class="st">"firm"</span>, <span class="st">"year"</span>), <span class="at">balance =</span> <span class="st">"periods"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
-<li>create a row for every entity‑time combination (if <code>delta</code> is supplied, the full time sequence including missing periods is used).</li>
+<li>creating a row for every entity‑time combination (if <code>delta</code> is supplied, the full time sequence including missing periods is used).</li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>balance_rows <span class="ot">&lt;-</span> <span class="fu">make_panel</span>(production, <span class="at">index =</span> <span class="fu">c</span>(<span class="st">"firm"</span>, <span class="st">"year"</span>), <span class="at">delta =</span> <span class="dv">1</span>, <span class="at">balance =</span> <span class="st">"rows"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -435,6 +435,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="missing-values-analysis" class="level2" data-number="5.5">
 <h2 data-number="5.5" class="anchored" data-anchor-id="missing-values-analysis"><span class="header-section-number">5.5</span> Missing values analysis</h2>
 <p>The second group of functions is aimed at analyzing missing values, taking into account the nature of panel data.</p>
+<p><code>plot_missing()</code> allows to select specific variables to analyze. One can also customize colors.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_missing</span>(</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  panel,</span>
@@ -449,6 +450,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+<p><code>summarize_missing()</code> also allows to select specific variables to analyze. In addition, it can provide more detailed table by adding period-specific missing value counts. One can also customize rounding.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarize_missing</span>(</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  panel,</span>
@@ -519,6 +521,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+<p><code>describe_incomplete()</code> can provide more detailed table by adding variable-specific missing value counts.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">describe_incomplete</span>(panel, <span class="at">detail =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -716,6 +719,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="numeric-variables-analysis" class="level2" data-number="5.6">
 <h2 data-number="5.6" class="anchored" data-anchor-id="numeric-variables-analysis"><span class="header-section-number">5.6</span> Numeric variables analysis</h2>
 <p>The third group of functions is aimed at analyzing numeric variables, taking into account the nature of panel data.</p>
+<p><code>summarize_numeric()</code> allows to select specific variables to analyze. It also can provide additional statisitcs. Custom rounding is also available.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarize_numeric</span>(</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  panel,</span>
@@ -903,6 +907,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+<p><code>plot_heterogeneity()</code> allows to choose several grouping variables. One can also customize colors.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_heterogeneity</span>(</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  panel,</span>
@@ -918,6 +923,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+<p><code>decompose_numeric()</code> allows to select specific varibles to analyze. One also can output the resulting table in wide format and hide redundant details, as well as customize rounding.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">decompose_numeric</span>(</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  panel,</span>
@@ -962,6 +968,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="factor-variables-analysis" class="level2" data-number="5.7">
 <h2 data-number="5.7" class="anchored" data-anchor-id="factor-variables-analysis"><span class="header-section-number">5.7</span> Factor variables analysis</h2>
 <p>The last group of functions is aimed at analyzing numeric variables, taking into account the nature of panel data.</p>
+<p>Compared to the default settings, both functions can output the resulting table in long format and also allow to customize rounding. <code>descompose_factor()</code> also allows to select specific variables to analyze.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">decompose_factor</span>(panel, <span class="at">select =</span> <span class="st">"industry"</span>, <span class="at">format =</span> <span class="st">"long"</span>, <span class="at">digits =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">

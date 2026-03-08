@@ -53,13 +53,19 @@ plot_patterns(production, index = c("firm", "year"))
 
 The second group of functions is aimed at analyzing missing values, taking into account the nature of panel data.
 
+You can create a heatmap showing the number of missing values for each variable across all time periods. 
+
 ```{r}
 plot_missing(production, index = c("firm", "year"))
 ```
 
+Also, you can output the table with brief summary statistics on missing values. 
+
 ```{r}
 summarize_missing(production, index = c("firm", "year"))
 ```
+
+In addition, you can compare missing values statistics across various entities. 
 
 ```{r}
 describe_incomplete(production, index = "firm")
@@ -69,17 +75,24 @@ describe_incomplete(production, index = "firm")
 
 The third group of functions is aimed at analyzing numeric variables, taking into account the nature of panel data.
 
+If you need to, you can output a table with simple descriptive statistics.
 ```{r}
 summarize_numeric(production)
 ```
+
+Descriptive statistics can be grouped by some variable, which does not necessarily have to be a panel identifier.
 
 ```{r}
 summarize_numeric(production, group = "year")
 ```
 
+Heterogeneity between different groups can also be visualized.
+
 ```{r}
 plot_heterogeneity(production, select = "sales", group = "year")
 ```
+
+For more detailed heterogeneity analysis, numeric variables can be decomposed into between and within components.
 
 ```{r}
 decompose_numeric(production, index = "firm")
@@ -89,9 +102,13 @@ decompose_numeric(production, index = "firm")
 
 The last group of functions is aimed at analyzing numeric variables, taking into account the nature of panel data.
 
+Factor variables can be decomposed into between and within components. 
+
 ```{r}
 decompose_factor(production, index = "firm")
 ```
+
+One can also summarize transitions between states of a categorical (factor) variable.
 
 ```{r}
 summarize_transition(production, select = "industry", index = c("firm", "year"))
