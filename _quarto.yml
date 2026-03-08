@@ -17,6 +17,7 @@ book:
 format:
   html:
     theme: flatly
+    df-print: kable
     toc: true
 
 editor: visual
