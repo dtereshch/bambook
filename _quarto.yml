@@ -3,7 +3,8 @@ project:
   output-dir: docs
 
 book:
-  title: "bambook: bamboo package howtos"
+  title: "bambook"
+  subtitle: "bamboo package howtos"
   author: Dmitrii Tereshchenko
   chapters:
     - index.qmd

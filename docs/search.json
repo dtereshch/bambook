@@ -2,7 +2,7 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "bambook: bamboo package howtos",
+    "title": "bambook",
     "section": "",
     "text": "This webbook collects various scenarios for panel data analysis using the bamboo R package.\nThe package itself is contained in a separate GitHub repository.\n\n\n\nPandas love bamboo!",
     "crumbs": [
