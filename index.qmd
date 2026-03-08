@@ -6,4 +6,4 @@ This webbook collects various scenarios for panel data analysis using the `bambo
 
 The package itself is contained in a separate [GitHub repository](https://github.com/dtereshch/bamboo).
 
-![Pandas love bamboo!](images/bamboo_draw.jpeg)
+![](images/bamboo_draw.jpeg)
