@@ -29,6 +29,8 @@ panel <- make_panel(production, index = c("firm", "year"))
 
 ## Panel data structure analysis
 
+The first group of functions is designed to analyze the structure of the panel.
+
 ```{r}
 describe_dimensions(panel)
 ```
@@ -55,6 +57,8 @@ plot_patterns(panel)
 
 ## Missing values analysis
 
+The second group of functions is aimed at analyzing missing values, taking into account the nature of panel data.
+
 ```{r}
 plot_missing(panel)
 ```
@@ -68,6 +72,8 @@ describe_incomplete(panel)
 ```
 
 ## Numeric variables analysis
+
+The third group of functions is aimed at analyzing numeric variables, taking into account the nature of panel data.
 
 ```{r}
 summarize_numeric(panel)
@@ -86,6 +92,8 @@ decompose_numeric(panel)
 ```
 
 ## Factor variables analysis
+
+The last group of functions is aimed at analyzing numeric variables, taking into account the nature of panel data.
 
 ```{r}
 decompose_factor(panel)

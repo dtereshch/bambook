@@ -230,6 +230,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="panel-data-structure-analysis" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="panel-data-structure-analysis"><span class="header-section-number">3.3</span> Panel data structure analysis</h2>
+<p>The first group of functions is designed to analyze the structure of the panel.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">describe_dimensions</span>(production, <span class="at">index =</span> <span class="fu">c</span>(<span class="st">"firm"</span>, <span class="st">"year"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -296,6 +297,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="missing-values-analysis" class="level2" data-number="3.4">
 <h2 data-number="3.4" class="anchored" data-anchor-id="missing-values-analysis"><span class="header-section-number">3.4</span> Missing values analysis</h2>
+<p>The second group of functions is aimed at analyzing missing values, taking into account the nature of panel data.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_missing</span>(production, <span class="at">index =</span> <span class="fu">c</span>(<span class="st">"firm"</span>, <span class="st">"year"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -350,6 +352,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="numeric-variables-analysis" class="level2" data-number="3.5">
 <h2 data-number="3.5" class="anchored" data-anchor-id="numeric-variables-analysis"><span class="header-section-number">3.5</span> Numeric variables analysis</h2>
+<p>The third group of functions is aimed at analyzing numeric variables, taking into account the nature of panel data.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarize_numeric</span>(production)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -431,6 +434,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="factor-variables-analysis" class="level2" data-number="3.6">
 <h2 data-number="3.6" class="anchored" data-anchor-id="factor-variables-analysis"><span class="header-section-number">3.6</span> Factor variables analysis</h2>
+<p>The last group of functions is aimed at analyzing numeric variables, taking into account the nature of panel data.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">decompose_factor</span>(production, <span class="at">index =</span> <span class="st">"firm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">

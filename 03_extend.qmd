@@ -52,6 +52,8 @@ balance_rows <- make_panel(production, index = c("firm", "year"), delta = 1, bal
 
 ## Panel data structure analysis
 
+The first group of functions is designed to analyze the structure of the panel.
+
 ```{r}
 describe_balance(panel, detail = TRUE, digits = 2)
 ```
@@ -73,6 +75,8 @@ plot_patterns(panel, limits = c(4, 6), colors = c("darkgray", "white"))
 ```
 
 ## Missing values analysis
+
+The second group of functions is aimed at analyzing missing values, taking into account the nature of panel data.
 
 ```{r}
 plot_missing(
@@ -96,6 +100,8 @@ describe_incomplete(panel, detail = TRUE)
 ```
 
 ## Numeric variables analysis
+
+The third group of functions is aimed at analyzing numeric variables, taking into account the nature of panel data.
 
 ```{r}
 summarize_numeric(
@@ -127,6 +133,8 @@ decompose_numeric(
 ```
 
 ## Factor variables analysis
+
+The last group of functions is aimed at analyzing numeric variables, taking into account the nature of panel data.
 
 ```{r}
 decompose_factor(panel, select = "industry", format = "long", digits = 2)
