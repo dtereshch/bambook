@@ -25,21 +25,31 @@ data(production)
 
 The first group of functions is designed to analyze the structure of the panel.
 
+To begin with, you can look at the basic characteristics of the panel: the number of entities, the number of periods, the number of rows, and the number of variables.
+
 ```{r}
 describe_dimensions(production, index = c("firm", "year"))
 ```
 
-```{r}
-describe_balance(production, index = c("firm", "year"))
-```
+To begin analyzing the balance of the panel, you can look at the representation of entities by period.
 
 ```{r}
 describe_periods(production, index = c("firm", "year"))
 ```
 
+For a more detailed analysis of the panel balance, you can look at the distribution of the number of entities by periods and the number of periods by entities.
+
+```{r}
+describe_balance(production, index = c("firm", "year"))
+```
+
+You can also visualize the distribution of the number of periods across entities.
+
 ```{r}
 plot_periods(production, index = c("firm", "year"))
 ```
+
+In addition, the main patterns of entities participation in the panel can be displayed in a table or graph.
 
 ```{r}
 describe_patterns(production, index = c("firm", "year"))
@@ -76,6 +86,7 @@ describe_incomplete(production, index = "firm")
 The third group of functions is aimed at analyzing numeric variables, taking into account the nature of panel data.
 
 If you need to, you can output a table with simple descriptive statistics.
+
 ```{r}
 summarize_numeric(production)
 ```

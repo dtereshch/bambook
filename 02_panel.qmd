@@ -31,21 +31,31 @@ panel <- make_panel(production, index = c("firm", "year"))
 
 The first group of functions is designed to analyze the structure of the panel.
 
+To begin with, you can look at the basic characteristics of the panel: the number of entities, the number of periods, the number of rows, and the number of variables.
+
 ```{r}
 describe_dimensions(panel)
 ```
 
-```{r}
-describe_balance(panel)
-```
+To begin analyzing the balance of the panel, you can look at the representation of entities by period.
 
 ```{r}
 describe_periods(panel)
 ```
 
+For a more detailed analysis of the panel balance, you can look at the distribution of the number of entities by periods and the number of periods by entities.
+
+```{r}
+describe_balance(panel)
+```
+
+You can also visualize the distribution of the number of periods across entities.
+
 ```{r}
 plot_periods(panel)
 ```
+
+In addition, the main patterns of entities participation in the panel can be displayed in a table or graph.
 
 ```{r}
 describe_patterns(panel)
@@ -59,19 +69,19 @@ plot_patterns(panel)
 
 The second group of functions is aimed at analyzing missing values, taking into account the nature of panel data.
 
-You can create a heatmap showing the number of missing values for each variable across all time periods. 
+You can create a heatmap showing the number of missing values for each variable across all time periods.
 
 ```{r}
 plot_missing(panel)
 ```
 
-Also, you can output the table with brief summary statistics on missing values. 
+Also, you can output the table with brief summary statistics on missing values.
 
 ```{r}
 summarize_missing(panel)
 ```
 
-In addition, you can compare missing values statistics across various entities. 
+In addition, you can compare missing values statistics across various entities.
 
 ```{r}
 describe_incomplete(panel)
@@ -109,7 +119,7 @@ decompose_numeric(panel)
 
 The last group of functions is aimed at analyzing numeric variables, taking into account the nature of panel data.
 
-Factor variables can be decomposed into between and within components. 
+Factor variables can be decomposed into between and within components.
 
 ```{r}
 decompose_factor(panel)

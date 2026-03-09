@@ -52,19 +52,19 @@ balance_rows <- make_panel(production, index = c("firm", "year"), delta = 1, bal
 
 ## Panel data structure analysis
 
-The first group of functions is designed to analyze the structure of the panel.
+If necessary, you can display more detailed statistics on the distribution of entities by periods and periods by entities.
 
 ```{r}
 describe_balance(panel, detail = TRUE, digits = 2)
 ```
 
-```{r}
-describe_periods(panel, digits = 2)
-```
+`plot_periods()` function allows to customize colors. 
 
 ```{r}
 plot_periods(panel, colors = c("gray", "black"))
 ```
+
+Both `describe_patterns()` and `plot_patterns()` allow you to limit the range of patterns to display. In addition, `desribe_patterns()` allows to customize rounding when calculting shares, while `plot_patterns()` allows to customize colors. 
 
 ```{r}
 describe_patterns(panel, limits = 3, digits = 2)
@@ -75,8 +75,6 @@ plot_patterns(panel, limits = c(4, 6), colors = c("darkgray", "white"))
 ```
 
 ## Missing values analysis
-
-The second group of functions is aimed at analyzing missing values, taking into account the nature of panel data.
 
 `plot_missing()` allows to select specific variables to analyze. One can also customize colors. 
 
@@ -106,8 +104,6 @@ describe_incomplete(panel, detail = TRUE)
 ```
 
 ## Numeric variables analysis
-
-The third group of functions is aimed at analyzing numeric variables, taking into account the nature of panel data.
 
 `summarize_numeric()` allows to select specific variables to analyze. It also can provide additional statisitcs. Custom rounding is also available. 
 
@@ -146,9 +142,7 @@ decompose_numeric(
 
 ## Factor variables analysis
 
-The last group of functions is aimed at analyzing numeric variables, taking into account the nature of panel data.
-
-Compared to the default settings, both functions can output the resulting table in long format and also allow to customize rounding. `descompose_factor()` also allows to select specific variables to analyze.
+Compared to the default settings, both `decompose_factor()` and `summarize_transition()` functions can output the resulting table in long format and also allow to customize rounding. `descompose_factor()` also allows to select specific variables to analyze.
 
 ```{r}
 decompose_factor(panel, select = "industry", format = "long", digits = 2)
