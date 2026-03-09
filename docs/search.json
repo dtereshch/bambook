@@ -208,5 +208,85 @@
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Extended example</span>"
     ]
+  },
+  {
+    "objectID": "04_Stata.html",
+    "href": "04_Stata.html",
+    "title": "6  For Stata users",
+    "section": "",
+    "text": "6.1 Set up\nIn this example, the package functions are combined in such a way that the results obtained are more or less familiar to those users who are accustomed to using Stata.\nImport the package.\nlibrary(bamboo)",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>For Stata users</span>"
+    ]
+  },
+  {
+    "objectID": "04_Stata.html#data-import",
+    "href": "04_Stata.html#data-import",
+    "title": "6  For Stata users",
+    "section": "6.2 Data import",
+    "text": "6.2 Data import\nImport the built-in dataset with simulated unbalanced panel data.\n\ndata(production)",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>For Stata users</span>"
+    ]
+  },
+  {
+    "objectID": "04_Stata.html#summarize",
+    "href": "04_Stata.html#summarize",
+    "title": "6  For Stata users",
+    "section": "6.3 summarize",
+    "text": "6.3 summarize\nYou can look at the simple descriptive statistics with summarize_numeric().\n\nsummarize_numeric(production)\n\nAnalyzing all numeric variables: firm, year, sales, capital, labor\n\n\n\n\n\n\nvariable\ncount\nmean\nstd\nmin\nmax\n\n\n\n\nfirm\n180\n15.500\n8.680\n1.000\n30.000\n\n\nyear\n180\n3.500\n1.713\n1.000\n6.000\n\n\nsales\n154\n69.756\n46.804\n8.321\n336.853\n\n\ncapital\n154\n32.490\n31.053\n0.968\n194.719\n\n\nlabor\n154\n79.329\n73.687\n4.097\n419.848",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>For Stata users</span>"
+    ]
+  },
+  {
+    "objectID": "04_Stata.html#xtset",
+    "href": "04_Stata.html#xtset",
+    "title": "6  For Stata users",
+    "section": "6.4 xtset",
+    "text": "6.4 xtset\nYou can set up a panel structure in advance so that you don’t have to do it later each time you use other functions. Note that if delta is supplied, the function checks for omitted time periods. If such periods exist, they will be taken into account when other functions work with this argument.\n\npanel &lt;- make_panel(production, index = c(\"firm\", \"year\"), delta = 1)",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>For Stata users</span>"
+    ]
+  },
+  {
+    "objectID": "04_Stata.html#xtdes",
+    "href": "04_Stata.html#xtdes",
+    "title": "6  For Stata users",
+    "section": "6.5 xtdes",
+    "text": "6.5 xtdes\nxtdes command funcitonality can be reproduced by combining describe_dimensions(), describe_balance(), and describe_patterns() functions.\n\ndescribe_dimensions(panel)\n\n\n\n\n\nrows\nentities\nperiods\nvariables\n\n\n\n\n180\n30\n6\n4\n\n\n\n\n\n\n\ndescribe_balance(panel, detail = TRUE)\n\n\n\n\n\ndimension\nmean\nstd\nmin\np5\np25\np50\np75\np95\nmax\n\n\n\n\nentities\n26.167\n3.971\n19\n20.5\n25.25\n27\n28.75\n29.75\n30\n\n\nperiods\n5.233\n0.935\n3\n4.0\n4.25\n6\n6.00\n6.00\n6\n\n\n\n\n\n\n\ndescribe_patterns(panel)\n\n\n\n\n\npattern\n1\n2\n3\n4\n5\n6\ncount\nshare\n\n\n\n\n1\n1\n1\n1\n1\n1\n1\n16\n0.533\n\n\n2\n1\n1\n1\n1\n1\n0\n5\n0.167\n\n\n3\n1\n1\n1\n1\n0\n0\n3\n0.100\n\n\n4\n0\n0\n1\n1\n1\n1\n2\n0.067\n\n\n5\n0\n1\n1\n1\n1\n0\n2\n0.067\n\n\n6\n0\n1\n1\n1\n1\n1\n1\n0.033\n\n\n7\n1\n1\n1\n0\n0\n0\n1\n0.033",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>For Stata users</span>"
+    ]
+  },
+  {
+    "objectID": "04_Stata.html#xtsum",
+    "href": "04_Stata.html#xtsum",
+    "title": "6  For Stata users",
+    "section": "6.6 xtsum",
+    "text": "6.6 xtsum\nxtsum command funcitonality can be reproduced with decompose_numeric() function.\n\ndecompose_numeric(panel)\n\nAnalyzing all numeric variables: sales, capital, labor\n\n\n\n\n\n\nvariable\ndimension\nmean\nstd\nmin\nmax\ncount\n\n\n\n\nsales\noverall\n69.756\n46.804\n8.321\n336.853\n154.000\n\n\nsales\nbetween\nNA\n29.776\n25.772\n159.197\n30.000\n\n\nsales\nwithin\nNA\n35.862\n-28.397\n247.412\n5.133\n\n\ncapital\noverall\n32.490\n31.053\n0.968\n194.719\n154.000\n\n\ncapital\nbetween\nNA\n13.969\n8.671\n75.083\n30.000\n\n\ncapital\nwithin\nNA\n27.701\n-22.444\n152.126\n5.133\n\n\nlabor\noverall\n79.329\n73.687\n4.097\n419.848\n154.000\n\n\nlabor\nbetween\nNA\n44.023\n24.606\n175.731\n30.000\n\n\nlabor\nwithin\nNA\n59.561\n-77.709\n323.445\n5.133",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>For Stata users</span>"
+    ]
+  },
+  {
+    "objectID": "04_Stata.html#xttab",
+    "href": "04_Stata.html#xttab",
+    "title": "6  For Stata users",
+    "section": "6.7 xttab",
+    "text": "6.7 xttab\nxttab command funcitonality can be reproduced with decompose_factor() function.\n\ndecompose_factor(panel)\n\nAnalyzing all factor variables: industry\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nvariable\ncategory\ncount_overall\nshare_overall\ncount_between\nshare_between\nshare_within\n\n\n\n\nindustry\nIndustry 1\n63\n0.401\n13\n0.433\n0.918\n\n\nindustry\nIndustry 2\n45\n0.287\n11\n0.367\n0.809\n\n\nindustry\nIndustry 3\n49\n0.312\n10\n0.333\n0.917",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>For Stata users</span>"
+    ]
+  },
+  {
+    "objectID": "04_Stata.html#xttrans",
+    "href": "04_Stata.html#xttrans",
+    "title": "6  For Stata users",
+    "section": "6.8 xttrans",
+    "text": "6.8 xttrans\nxttrans command funcitonality can be reproduced with summarize_transition() function.\n\nsummarize_transition(panel, select = \"industry\")\n\n23 rows with NA values in 'industry' removed.\n\n\n\n\n\n\nfrom_to\nIndustry 1\nIndustry 2\nIndustry 3\n\n\n\n\nIndustry 1\n1\n0.054\n0.000\n\n\nIndustry 2\n0\n0.919\n0.025\n\n\nIndustry 3\n0\n0.027\n0.975",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>For Stata users</span>"
+    ]
   }
 ]

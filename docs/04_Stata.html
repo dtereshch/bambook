@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>4&nbsp; Smart example – bambook</title>
+<title>6&nbsp; For Stata users – bambook</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,8 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./03_extend.html" rel="next">
-<link href="./01_basic.html" rel="prev">
+<link href="./03_extend.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -117,7 +116,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./02_panel.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Smart example</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04_Stata.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">For Stata users</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -162,7 +161,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./02_panel.html" class="sidebar-item-text sidebar-link active">
+  <a href="./02_panel.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Smart example</span></span></a>
   </div>
 </li>
@@ -174,7 +173,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04_Stata.html" class="sidebar-item-text sidebar-link">
+  <a href="./04_Stata.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">For Stata users</span></span></a>
   </div>
 </li>
@@ -188,12 +187,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#set-up" id="toc-set-up" class="nav-link active" data-scroll-target="#set-up"><span class="header-section-number">4.1</span> Set up</a></li>
-  <li><a href="#data-import" id="toc-data-import" class="nav-link" data-scroll-target="#data-import"><span class="header-section-number">4.2</span> Data import</a></li>
-  <li><a href="#panel-data-structure-analysis" id="toc-panel-data-structure-analysis" class="nav-link" data-scroll-target="#panel-data-structure-analysis"><span class="header-section-number">4.3</span> Panel data structure analysis</a></li>
-  <li><a href="#missing-values-analysis" id="toc-missing-values-analysis" class="nav-link" data-scroll-target="#missing-values-analysis"><span class="header-section-number">4.4</span> Missing values analysis</a></li>
-  <li><a href="#numeric-variables-analysis" id="toc-numeric-variables-analysis" class="nav-link" data-scroll-target="#numeric-variables-analysis"><span class="header-section-number">4.5</span> Numeric variables analysis</a></li>
-  <li><a href="#factor-variables-analysis" id="toc-factor-variables-analysis" class="nav-link" data-scroll-target="#factor-variables-analysis"><span class="header-section-number">4.6</span> Factor variables analysis</a></li>
+  <li><a href="#set-up" id="toc-set-up" class="nav-link active" data-scroll-target="#set-up"><span class="header-section-number">6.1</span> Set up</a></li>
+  <li><a href="#data-import" id="toc-data-import" class="nav-link" data-scroll-target="#data-import"><span class="header-section-number">6.2</span> Data import</a></li>
+  <li><a href="#summarize" id="toc-summarize" class="nav-link" data-scroll-target="#summarize"><span class="header-section-number">6.3</span> summarize</a></li>
+  <li><a href="#xtset" id="toc-xtset" class="nav-link" data-scroll-target="#xtset"><span class="header-section-number">6.4</span> xtset</a></li>
+  <li><a href="#xtdes" id="toc-xtdes" class="nav-link" data-scroll-target="#xtdes"><span class="header-section-number">6.5</span> xtdes</a></li>
+  <li><a href="#xtsum" id="toc-xtsum" class="nav-link" data-scroll-target="#xtsum"><span class="header-section-number">6.6</span> xtsum</a></li>
+  <li><a href="#xttab" id="toc-xttab" class="nav-link" data-scroll-target="#xttab"><span class="header-section-number">6.7</span> xttab</a></li>
+  <li><a href="#xttrans" id="toc-xttrans" class="nav-link" data-scroll-target="#xttrans"><span class="header-section-number">6.8</span> xttrans</a></li>
   </ul>
 </nav>
     </div>
@@ -202,7 +203,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Smart example</span></h1>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">For Stata users</span></h1>
 </div>
 
 
@@ -219,31 +220,101 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Almost all of the package’s functions require full or partial specification of a panel structure. To avoid repeating the same steps over and over again, the package allows you to pre-define the panel structure. Examples shown below are simplified by this approach.</p>
-<section id="set-up" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="set-up"><span class="header-section-number">4.1</span> Set up</h2>
+<p>In this example, the package functions are combined in such a way that the results obtained are more or less familiar to those users who are accustomed to using <code>Stata</code>.</p>
+<section id="set-up" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="set-up"><span class="header-section-number">6.1</span> Set up</h2>
 <p>Import the package.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(bamboo)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="data-import" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="data-import"><span class="header-section-number">4.2</span> Data import</h2>
+<section id="data-import" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="data-import"><span class="header-section-number">6.2</span> Data import</h2>
 <p>Import the built-in dataset with simulated unbalanced panel data.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(production)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Set up a panel structure in advance so that you don’t have to do it later each time you use other functions.</p>
+</section>
+<section id="summarize" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="summarize"><span class="header-section-number">6.3</span> summarize</h2>
+<p>You can look at the simple descriptive statistics with <code>summarize_numeric()</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>panel <span class="ot">&lt;-</span> <span class="fu">make_panel</span>(production, <span class="at">index =</span> <span class="fu">c</span>(<span class="st">"firm"</span>, <span class="st">"year"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarize_numeric</span>(production)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Analyzing all numeric variables: firm, year, sales, capital, labor</code></pre>
+</div>
+<div class="cell-output-display">
+<div class="kable-table">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">variable</th>
+<th style="text-align: right;">count</th>
+<th style="text-align: right;">mean</th>
+<th style="text-align: right;">std</th>
+<th style="text-align: right;">min</th>
+<th style="text-align: right;">max</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">firm</td>
+<td style="text-align: right;">180</td>
+<td style="text-align: right;">15.500</td>
+<td style="text-align: right;">8.680</td>
+<td style="text-align: right;">1.000</td>
+<td style="text-align: right;">30.000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">year</td>
+<td style="text-align: right;">180</td>
+<td style="text-align: right;">3.500</td>
+<td style="text-align: right;">1.713</td>
+<td style="text-align: right;">1.000</td>
+<td style="text-align: right;">6.000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">sales</td>
+<td style="text-align: right;">154</td>
+<td style="text-align: right;">69.756</td>
+<td style="text-align: right;">46.804</td>
+<td style="text-align: right;">8.321</td>
+<td style="text-align: right;">336.853</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">capital</td>
+<td style="text-align: right;">154</td>
+<td style="text-align: right;">32.490</td>
+<td style="text-align: right;">31.053</td>
+<td style="text-align: right;">0.968</td>
+<td style="text-align: right;">194.719</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">labor</td>
+<td style="text-align: right;">154</td>
+<td style="text-align: right;">79.329</td>
+<td style="text-align: right;">73.687</td>
+<td style="text-align: right;">4.097</td>
+<td style="text-align: right;">419.848</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 </section>
-<section id="panel-data-structure-analysis" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="panel-data-structure-analysis"><span class="header-section-number">4.3</span> Panel data structure analysis</h2>
-<p>The first group of functions is designed to analyze the structure of the panel.</p>
-<p>To begin with, you can look at the basic characteristics of the panel: the number of entities, the number of periods, the number of rows, and the number of variables.</p>
+<section id="xtset" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="xtset"><span class="header-section-number">6.4</span> xtset</h2>
+<p>You can set up a panel structure in advance so that you don’t have to do it later each time you use other functions. Note that if <code>delta</code> is supplied, the function checks for omitted time periods. If such periods exist, they will be taken into account when other functions work with this argument.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">describe_dimensions</span>(panel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>panel <span class="ot">&lt;-</span> <span class="fu">make_panel</span>(production, <span class="at">index =</span> <span class="fu">c</span>(<span class="st">"firm"</span>, <span class="st">"year"</span>), <span class="at">delta =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="xtdes" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="xtdes"><span class="header-section-number">6.5</span> xtdes</h2>
+<p><code>xtdes</code> command funcitonality can be reproduced by combining <code>describe_dimensions()</code>, <code>describe_balance()</code>, and <code>describe_patterns()</code> functions.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">describe_dimensions</span>(panel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="kable-table">
 <table class="caption-top table table-sm table-striped small">
@@ -267,58 +338,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>To begin analyzing the balance of the panel, you can look at the representation of entities by period.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">describe_periods</span>(panel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="kable-table">
-<table class="caption-top table table-sm table-striped small">
-<thead>
-<tr class="header">
-<th style="text-align: right;">year</th>
-<th style="text-align: right;">count</th>
-<th style="text-align: right;">share</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">25</td>
-<td style="text-align: right;">0.833</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">28</td>
-<td style="text-align: right;">0.933</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">30</td>
-<td style="text-align: right;">1.000</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">29</td>
-<td style="text-align: right;">0.967</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">26</td>
-<td style="text-align: right;">0.867</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">19</td>
-<td style="text-align: right;">0.633</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-<p>For a more detailed analysis of the panel balance, you can look at the distribution of the number of entities by periods and the number of periods by entities.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">describe_balance</span>(panel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">describe_balance</span>(panel, <span class="at">detail =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="kable-table">
 <table class="caption-top table table-sm table-striped small">
@@ -328,6 +349,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <th style="text-align: right;">mean</th>
 <th style="text-align: right;">std</th>
 <th style="text-align: right;">min</th>
+<th style="text-align: right;">p5</th>
+<th style="text-align: right;">p25</th>
+<th style="text-align: right;">p50</th>
+<th style="text-align: right;">p75</th>
+<th style="text-align: right;">p95</th>
 <th style="text-align: right;">max</th>
 </tr>
 </thead>
@@ -337,6 +363,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: right;">26.167</td>
 <td style="text-align: right;">3.971</td>
 <td style="text-align: right;">19</td>
+<td style="text-align: right;">20.5</td>
+<td style="text-align: right;">25.25</td>
+<td style="text-align: right;">27</td>
+<td style="text-align: right;">28.75</td>
+<td style="text-align: right;">29.75</td>
 <td style="text-align: right;">30</td>
 </tr>
 <tr class="even">
@@ -344,6 +375,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: right;">5.233</td>
 <td style="text-align: right;">0.935</td>
 <td style="text-align: right;">3</td>
+<td style="text-align: right;">4.0</td>
+<td style="text-align: right;">4.25</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">6.00</td>
+<td style="text-align: right;">6.00</td>
 <td style="text-align: right;">6</td>
 </tr>
 </tbody>
@@ -351,18 +387,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>You can also visualize the distribution of the number of periods across entities.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_periods</span>(panel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="02_panel_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>In addition, the main patterns of entities participation in the panel can be displayed in a table or graph.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">describe_patterns</span>(panel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -464,455 +488,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_patterns</span>(panel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="02_panel_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
 </section>
-<section id="missing-values-analysis" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="missing-values-analysis"><span class="header-section-number">4.4</span> Missing values analysis</h2>
-<p>The second group of functions is aimed at analyzing missing values, taking into account the nature of panel data.</p>
-<p>You can create a heatmap showing the number of missing values for each variable across all time periods.</p>
+<section id="xtsum" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="xtsum"><span class="header-section-number">6.6</span> xtsum</h2>
+<p><code>xtsum</code> command funcitonality can be reproduced with <code>decompose_numeric()</code> function.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_missing</span>(panel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Analysing all variables: industry, sales, capital, labor</code></pre>
-</div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="02_panel_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Also, you can output the table with brief summary statistics on missing values.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarize_missing</span>(panel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Analyzing all variables: industry, sales, capital, labor</code></pre>
-</div>
-<div class="cell-output-display">
-<div class="kable-table">
-<table class="caption-top table table-sm table-striped small">
-<thead>
-<tr class="header">
-<th style="text-align: left;">variable</th>
-<th style="text-align: right;">na_count</th>
-<th style="text-align: right;">na_share</th>
-<th style="text-align: right;">entities</th>
-<th style="text-align: right;">periods</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">industry</td>
-<td style="text-align: right;">23</td>
-<td style="text-align: right;">0.128</td>
-<td style="text-align: right;">14</td>
-<td style="text-align: right;">5</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">sales</td>
-<td style="text-align: right;">26</td>
-<td style="text-align: right;">0.144</td>
-<td style="text-align: right;">15</td>
-<td style="text-align: right;">5</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">capital</td>
-<td style="text-align: right;">26</td>
-<td style="text-align: right;">0.144</td>
-<td style="text-align: right;">17</td>
-<td style="text-align: right;">5</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">labor</td>
-<td style="text-align: right;">26</td>
-<td style="text-align: right;">0.144</td>
-<td style="text-align: right;">16</td>
-<td style="text-align: right;">6</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-<p>In addition, you can compare missing values statistics across various entities.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">describe_incomplete</span>(panel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="kable-table">
-<table class="caption-top table table-sm table-striped small">
-<thead>
-<tr class="header">
-<th style="text-align: right;">firm</th>
-<th style="text-align: right;">na_count</th>
-<th style="text-align: right;">variables</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">23</td>
-<td style="text-align: right;">12</td>
-<td style="text-align: right;">4</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">21</td>
-<td style="text-align: right;">9</td>
-<td style="text-align: right;">4</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">4</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">4</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">4</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">4</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">12</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">4</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">26</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">4</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">25</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">4</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">30</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">4</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">4</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">13</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">4</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">17</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">4</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">29</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">4</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">14</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">24</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</section>
-<section id="numeric-variables-analysis" class="level2" data-number="4.5">
-<h2 data-number="4.5" class="anchored" data-anchor-id="numeric-variables-analysis"><span class="header-section-number">4.5</span> Numeric variables analysis</h2>
-<p>The third group of functions is aimed at analyzing numeric variables, taking into account the nature of panel data.</p>
-<p>If you need to, you can output a table with simple descriptive statistics.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarize_numeric</span>(panel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Analyzing all numeric variables: sales, capital, labor</code></pre>
-</div>
-<div class="cell-output-display">
-<div class="kable-table">
-<table class="caption-top table table-sm table-striped small">
-<thead>
-<tr class="header">
-<th style="text-align: left;">variable</th>
-<th style="text-align: right;">count</th>
-<th style="text-align: right;">mean</th>
-<th style="text-align: right;">std</th>
-<th style="text-align: right;">min</th>
-<th style="text-align: right;">max</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">sales</td>
-<td style="text-align: right;">154</td>
-<td style="text-align: right;">69.756</td>
-<td style="text-align: right;">46.804</td>
-<td style="text-align: right;">8.321</td>
-<td style="text-align: right;">336.853</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">capital</td>
-<td style="text-align: right;">154</td>
-<td style="text-align: right;">32.490</td>
-<td style="text-align: right;">31.053</td>
-<td style="text-align: right;">0.968</td>
-<td style="text-align: right;">194.719</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">labor</td>
-<td style="text-align: right;">154</td>
-<td style="text-align: right;">79.329</td>
-<td style="text-align: right;">73.687</td>
-<td style="text-align: right;">4.097</td>
-<td style="text-align: right;">419.848</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-<p>Descriptive statistics can be grouped by some variable, which does not necessarily have to be a panel identifier.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarize_numeric</span>(panel, <span class="at">group =</span> <span class="st">"year"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Analyzing all numeric variables: sales, capital, labor</code></pre>
-</div>
-<div class="cell-output-display">
-<div class="kable-table">
-<table class="caption-top table table-sm table-striped small">
-<thead>
-<tr class="header">
-<th style="text-align: left;">year</th>
-<th style="text-align: left;">variable</th>
-<th style="text-align: right;">count</th>
-<th style="text-align: right;">mean</th>
-<th style="text-align: right;">std</th>
-<th style="text-align: right;">min</th>
-<th style="text-align: right;">max</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">1</td>
-<td style="text-align: left;">sales</td>
-<td style="text-align: right;">25</td>
-<td style="text-align: right;">58.491</td>
-<td style="text-align: right;">44.590</td>
-<td style="text-align: right;">8.321</td>
-<td style="text-align: right;">190.100</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">1</td>
-<td style="text-align: left;">capital</td>
-<td style="text-align: right;">24</td>
-<td style="text-align: right;">24.862</td>
-<td style="text-align: right;">16.273</td>
-<td style="text-align: right;">0.968</td>
-<td style="text-align: right;">65.950</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">1</td>
-<td style="text-align: left;">labor</td>
-<td style="text-align: right;">25</td>
-<td style="text-align: right;">68.871</td>
-<td style="text-align: right;">66.941</td>
-<td style="text-align: right;">4.097</td>
-<td style="text-align: right;">246.852</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">2</td>
-<td style="text-align: left;">sales</td>
-<td style="text-align: right;">28</td>
-<td style="text-align: right;">56.099</td>
-<td style="text-align: right;">37.944</td>
-<td style="text-align: right;">17.803</td>
-<td style="text-align: right;">186.349</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">2</td>
-<td style="text-align: left;">capital</td>
-<td style="text-align: right;">27</td>
-<td style="text-align: right;">28.790</td>
-<td style="text-align: right;">31.053</td>
-<td style="text-align: right;">3.150</td>
-<td style="text-align: right;">151.464</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">2</td>
-<td style="text-align: left;">labor</td>
-<td style="text-align: right;">27</td>
-<td style="text-align: right;">60.463</td>
-<td style="text-align: right;">48.484</td>
-<td style="text-align: right;">11.692</td>
-<td style="text-align: right;">222.761</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">3</td>
-<td style="text-align: left;">sales</td>
-<td style="text-align: right;">30</td>
-<td style="text-align: right;">76.660</td>
-<td style="text-align: right;">47.574</td>
-<td style="text-align: right;">20.580</td>
-<td style="text-align: right;">219.513</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">3</td>
-<td style="text-align: left;">capital</td>
-<td style="text-align: right;">30</td>
-<td style="text-align: right;">35.464</td>
-<td style="text-align: right;">39.174</td>
-<td style="text-align: right;">4.729</td>
-<td style="text-align: right;">194.719</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">3</td>
-<td style="text-align: left;">labor</td>
-<td style="text-align: right;">29</td>
-<td style="text-align: right;">90.437</td>
-<td style="text-align: right;">82.628</td>
-<td style="text-align: right;">9.284</td>
-<td style="text-align: right;">414.844</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">4</td>
-<td style="text-align: left;">sales</td>
-<td style="text-align: right;">28</td>
-<td style="text-align: right;">73.104</td>
-<td style="text-align: right;">33.238</td>
-<td style="text-align: right;">19.455</td>
-<td style="text-align: right;">135.118</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">4</td>
-<td style="text-align: left;">capital</td>
-<td style="text-align: right;">29</td>
-<td style="text-align: right;">44.522</td>
-<td style="text-align: right;">35.375</td>
-<td style="text-align: right;">5.080</td>
-<td style="text-align: right;">132.898</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">4</td>
-<td style="text-align: left;">labor</td>
-<td style="text-align: right;">29</td>
-<td style="text-align: right;">73.967</td>
-<td style="text-align: right;">54.005</td>
-<td style="text-align: right;">16.327</td>
-<td style="text-align: right;">240.726</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">5</td>
-<td style="text-align: left;">sales</td>
-<td style="text-align: right;">24</td>
-<td style="text-align: right;">75.398</td>
-<td style="text-align: right;">43.091</td>
-<td style="text-align: right;">20.161</td>
-<td style="text-align: right;">211.092</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">5</td>
-<td style="text-align: left;">capital</td>
-<td style="text-align: right;">25</td>
-<td style="text-align: right;">28.351</td>
-<td style="text-align: right;">23.127</td>
-<td style="text-align: right;">5.339</td>
-<td style="text-align: right;">86.078</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">5</td>
-<td style="text-align: left;">labor</td>
-<td style="text-align: right;">26</td>
-<td style="text-align: right;">90.604</td>
-<td style="text-align: right;">85.026</td>
-<td style="text-align: right;">21.063</td>
-<td style="text-align: right;">413.784</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">6</td>
-<td style="text-align: left;">sales</td>
-<td style="text-align: right;">19</td>
-<td style="text-align: right;">81.744</td>
-<td style="text-align: right;">73.320</td>
-<td style="text-align: right;">20.352</td>
-<td style="text-align: right;">336.853</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">6</td>
-<td style="text-align: left;">capital</td>
-<td style="text-align: right;">19</td>
-<td style="text-align: right;">29.767</td>
-<td style="text-align: right;">30.908</td>
-<td style="text-align: right;">2.288</td>
-<td style="text-align: right;">108.787</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">6</td>
-<td style="text-align: left;">labor</td>
-<td style="text-align: right;">18</td>
-<td style="text-align: right;">96.609</td>
-<td style="text-align: right;">103.777</td>
-<td style="text-align: right;">20.507</td>
-<td style="text-align: right;">419.848</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-<p>Heterogeneity between different groups can also be visualized.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_heterogeneity</span>(panel, <span class="at">select =</span> <span class="st">"sales"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="02_panel_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>For more detailed heterogeneity analysis, numeric variables can be decomposed into between and within components.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">decompose_numeric</span>(panel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">decompose_numeric</span>(panel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Analyzing all numeric variables: sales, capital, labor</code></pre>
 </div>
@@ -1018,12 +599,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="factor-variables-analysis" class="level2" data-number="4.6">
-<h2 data-number="4.6" class="anchored" data-anchor-id="factor-variables-analysis"><span class="header-section-number">4.6</span> Factor variables analysis</h2>
-<p>The last group of functions is aimed at analyzing numeric variables, taking into account the nature of panel data.</p>
-<p>Factor variables can be decomposed into between and within components.</p>
+<section id="xttab" class="level2" data-number="6.7">
+<h2 data-number="6.7" class="anchored" data-anchor-id="xttab"><span class="header-section-number">6.7</span> xttab</h2>
+<p><code>xttab</code> command funcitonality can be reproduced with <code>decompose_factor()</code> function.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">decompose_factor</span>(panel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">decompose_factor</span>(panel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Analyzing all factor variables: industry</code></pre>
 </div>
@@ -1083,9 +663,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>One can also summarize transitions between states of a categorical (factor) variable.</p>
+</section>
+<section id="xttrans" class="level2" data-number="6.8">
+<h2 data-number="6.8" class="anchored" data-anchor-id="xttrans"><span class="header-section-number">6.8</span> xttrans</h2>
+<p><code>xttrans</code> command funcitonality can be reproduced with <code>summarize_transition()</code> function.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarize_transition</span>(panel, <span class="at">select =</span> <span class="st">"industry"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarize_transition</span>(panel, <span class="at">select =</span> <span class="st">"industry"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>23 rows with NA values in 'industry' removed.</code></pre>
 </div>
@@ -1530,14 +1113,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./01_basic.html" class="pagination-link" aria-label="Basic example">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Basic example</span></span>
+      <a href="./03_extend.html" class="pagination-link" aria-label="Extended example">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Extended example</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./03_extend.html" class="pagination-link" aria-label="Extended example">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Extended example</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->

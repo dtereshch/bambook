@@ -1,0 +1,78 @@
+---
+title: "For Stata users"
+format: html
+---
+
+In this example, the package functions are combined in such a way that the results obtained are more or less familiar to those users who are accustomed to using `Stata`.
+
+## Set up
+
+Import the package.
+
+```{r}
+library(bamboo)
+```
+
+## Data import
+
+Import the built-in dataset with simulated unbalanced panel data.
+
+```{r}
+data(production)
+```
+
+## summarize
+
+You can look at the simple descriptive statistics with `summarize_numeric()`.
+
+```{r}
+summarize_numeric(production)
+```
+
+## xtset
+
+You can set up a panel structure in advance so that you don't have to do it later each time you use other functions. Note that if `delta` is supplied, the function checks for omitted time periods. If such periods exist, they will be taken into account when other functions work with this argument.
+
+```{r}
+panel <- make_panel(production, index = c("firm", "year"), delta = 1)
+```
+
+## xtdes
+
+`xtdes` command funcitonality can be reproduced by combining `describe_dimensions()`, `describe_balance()`, and `describe_patterns()` functions.
+
+```{r}
+describe_dimensions(panel)
+```
+
+```{r}
+describe_balance(panel, detail = TRUE)
+```
+
+```{r}
+describe_patterns(panel)
+```
+
+## xtsum
+
+`xtsum` command funcitonality can be reproduced with `decompose_numeric()` function.
+
+```{r}
+decompose_numeric(panel)
+```
+
+## xttab
+
+`xttab` command funcitonality can be reproduced with `decompose_factor()` function.
+
+```{r}
+decompose_factor(panel)
+```
+
+## xttrans
+
+`xttrans` command funcitonality can be reproduced with `summarize_transition()` function.
+
+```{r}
+summarize_transition(panel, select = "industry")
+```
