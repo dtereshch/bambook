@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>6&nbsp; For Stata users – bambook</title>
+<title>7&nbsp; Comparison with other packages – bambook</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,8 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./05_comparison.html" rel="next">
-<link href="./03_extend.html" rel="prev">
+<link href="./04_Stata.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -104,6 +103,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 
 
 </head>
@@ -117,7 +118,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04_Stata.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">For Stata users</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05_comparison.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Comparison with other packages</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -174,13 +175,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04_Stata.html" class="sidebar-item-text sidebar-link active">
+  <a href="./04_Stata.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">For Stata users</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05_comparison.html" class="sidebar-item-text sidebar-link">
+  <a href="./05_comparison.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Comparison with other packages</span></span></a>
   </div>
 </li>
@@ -194,14 +195,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#set-up" id="toc-set-up" class="nav-link active" data-scroll-target="#set-up"><span class="header-section-number">6.1</span> Set up</a></li>
-  <li><a href="#data-import" id="toc-data-import" class="nav-link" data-scroll-target="#data-import"><span class="header-section-number">6.2</span> Data import</a></li>
-  <li><a href="#summarize" id="toc-summarize" class="nav-link" data-scroll-target="#summarize"><span class="header-section-number">6.3</span> summarize</a></li>
-  <li><a href="#xtset" id="toc-xtset" class="nav-link" data-scroll-target="#xtset"><span class="header-section-number">6.4</span> xtset</a></li>
-  <li><a href="#xtdes" id="toc-xtdes" class="nav-link" data-scroll-target="#xtdes"><span class="header-section-number">6.5</span> xtdes</a></li>
-  <li><a href="#xtsum" id="toc-xtsum" class="nav-link" data-scroll-target="#xtsum"><span class="header-section-number">6.6</span> xtsum</a></li>
-  <li><a href="#xttab" id="toc-xttab" class="nav-link" data-scroll-target="#xttab"><span class="header-section-number">6.7</span> xttab</a></li>
-  <li><a href="#xttrans" id="toc-xttrans" class="nav-link" data-scroll-target="#xttrans"><span class="header-section-number">6.8</span> xttrans</a></li>
+  <li><a href="#set-up" id="toc-set-up" class="nav-link active" data-scroll-target="#set-up"><span class="header-section-number">7.1</span> Set up</a></li>
+  <li><a href="#data-import" id="toc-data-import" class="nav-link" data-scroll-target="#data-import"><span class="header-section-number">7.2</span> Data import</a></li>
+  <li><a href="#bamboo-vs.-pdynmc" id="toc-bamboo-vs.-pdynmc" class="nav-link" data-scroll-target="#bamboo-vs.-pdynmc"><span class="header-section-number">7.3</span> bamboo vs.&nbsp;pdynmc</a></li>
+  <li><a href="#bamboo-vs.-modelsummary" id="toc-bamboo-vs.-modelsummary" class="nav-link" data-scroll-target="#bamboo-vs.-modelsummary"><span class="header-section-number">7.4</span> bamboo vs.&nbsp;modelsummary</a></li>
+  <li><a href="#bamboo-vs.-gplots" id="toc-bamboo-vs.-gplots" class="nav-link" data-scroll-target="#bamboo-vs.-gplots"><span class="header-section-number">7.5</span> bamboo vs.&nbsp;gplots</a></li>
+  <li><a href="#bamboo-vs.-xtsum" id="toc-bamboo-vs.-xtsum" class="nav-link" data-scroll-target="#bamboo-vs.-xtsum"><span class="header-section-number">7.6</span> bamboo vs.&nbsp;xtsum</a></li>
   </ul>
 </nav>
     </div>
@@ -210,7 +209,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">For Stata users</span></h1>
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Comparison with other packages</span></h1>
 </div>
 
 
@@ -227,34 +226,59 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>In this example, the package functions are combined in such a way that the results obtained are more or less familiar to those users who are accustomed to using <code>Stata</code>.</p>
-<section id="set-up" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="set-up"><span class="header-section-number">6.1</span> Set up</h2>
-<p>Import the package.</p>
+<p>Almost all of this package’s functionality can be replicated using individual functions from other packages. However, I believe the main advantage of the <code>bamboo</code> package is that it combines all the functions necessary for panel data analysis and implements them in a single format. Below is a comparison with individual functions from other packages.</p>
+<section id="set-up" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="set-up"><span class="header-section-number">7.1</span> Set up</h2>
+<p>Import packages to compare.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(bamboo)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(bamboo)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gplots)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pdynmc)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(xtsum)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="data-import" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="data-import"><span class="header-section-number">6.2</span> Data import</h2>
+<section id="data-import" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="data-import"><span class="header-section-number">7.2</span> Data import</h2>
 <p>Import the built-in dataset with simulated unbalanced panel data.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(production)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="summarize" class="level2" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="summarize"><span class="header-section-number">6.3</span> summarize</h2>
-<p>You can look at the simple descriptive statistics with <code>summarize_numeric()</code>.</p>
+<section id="bamboo-vs.-pdynmc" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="bamboo-vs.-pdynmc"><span class="header-section-number">7.3</span> bamboo vs.&nbsp;pdynmc</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarize_numeric</span>(production)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Analyzing all numeric variables: firm, year, sales, capital, labor</code></pre>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>bamboo<span class="sc">::</span><span class="fu">plot_patterns</span>(production, <span class="at">index =</span> <span class="fu">c</span>(<span class="st">"firm"</span>, <span class="st">"year"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="05_comparison_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>unbalanced <span class="ot">&lt;-</span> production[<span class="fu">rowSums</span>(<span class="sc">!</span><span class="fu">is.na</span>(production[, <span class="fu">c</span>(<span class="st">"sales"</span>, <span class="st">"capital"</span>, <span class="st">"labor"</span>, <span class="st">"industry"</span>)])) <span class="sc">&gt;</span> <span class="dv">0</span>, ]</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>pdynmc<span class="sc">::</span><span class="fu">strucUPD.plot</span>(unbalanced, <span class="at">i.name =</span> <span class="st">"firm"</span>, <span class="at">t.name =</span> <span class="st">"year"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="05_comparison_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="bamboo-vs.-modelsummary" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="bamboo-vs.-modelsummary"><span class="header-section-number">7.4</span> bamboo vs.&nbsp;modelsummary</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>bamboo<span class="sc">::</span><span class="fu">summarize_numeric</span>(production, <span class="at">select =</span> <span class="fu">c</span>(<span class="st">"capital"</span>, <span class="st">"labor"</span>), <span class="at">group =</span> <span class="st">"year"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="kable-table">
 <table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
+<th style="text-align: left;">year</th>
 <th style="text-align: left;">variable</th>
 <th style="text-align: right;">count</th>
 <th style="text-align: right;">mean</th>
@@ -265,43 +289,111 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">firm</td>
-<td style="text-align: right;">180</td>
-<td style="text-align: right;">15.500</td>
-<td style="text-align: right;">8.680</td>
-<td style="text-align: right;">1.000</td>
-<td style="text-align: right;">30.000</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">capital</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">24.862</td>
+<td style="text-align: right;">16.273</td>
+<td style="text-align: right;">0.968</td>
+<td style="text-align: right;">65.950</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">year</td>
-<td style="text-align: right;">180</td>
-<td style="text-align: right;">3.500</td>
-<td style="text-align: right;">1.713</td>
-<td style="text-align: right;">1.000</td>
-<td style="text-align: right;">6.000</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">labor</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">68.871</td>
+<td style="text-align: right;">66.941</td>
+<td style="text-align: right;">4.097</td>
+<td style="text-align: right;">246.852</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">sales</td>
-<td style="text-align: right;">154</td>
-<td style="text-align: right;">69.756</td>
-<td style="text-align: right;">46.804</td>
-<td style="text-align: right;">8.321</td>
-<td style="text-align: right;">336.853</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">capital</td>
+<td style="text-align: right;">27</td>
+<td style="text-align: right;">28.790</td>
+<td style="text-align: right;">31.053</td>
+<td style="text-align: right;">3.150</td>
+<td style="text-align: right;">151.464</td>
 </tr>
 <tr class="even">
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">labor</td>
+<td style="text-align: right;">27</td>
+<td style="text-align: right;">60.463</td>
+<td style="text-align: right;">48.484</td>
+<td style="text-align: right;">11.692</td>
+<td style="text-align: right;">222.761</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3</td>
 <td style="text-align: left;">capital</td>
-<td style="text-align: right;">154</td>
-<td style="text-align: right;">32.490</td>
-<td style="text-align: right;">31.053</td>
-<td style="text-align: right;">0.968</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">35.464</td>
+<td style="text-align: right;">39.174</td>
+<td style="text-align: right;">4.729</td>
 <td style="text-align: right;">194.719</td>
 </tr>
-<tr class="odd">
+<tr class="even">
+<td style="text-align: left;">3</td>
 <td style="text-align: left;">labor</td>
-<td style="text-align: right;">154</td>
-<td style="text-align: right;">79.329</td>
-<td style="text-align: right;">73.687</td>
-<td style="text-align: right;">4.097</td>
+<td style="text-align: right;">29</td>
+<td style="text-align: right;">90.437</td>
+<td style="text-align: right;">82.628</td>
+<td style="text-align: right;">9.284</td>
+<td style="text-align: right;">414.844</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">capital</td>
+<td style="text-align: right;">29</td>
+<td style="text-align: right;">44.522</td>
+<td style="text-align: right;">35.375</td>
+<td style="text-align: right;">5.080</td>
+<td style="text-align: right;">132.898</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">labor</td>
+<td style="text-align: right;">29</td>
+<td style="text-align: right;">73.967</td>
+<td style="text-align: right;">54.005</td>
+<td style="text-align: right;">16.327</td>
+<td style="text-align: right;">240.726</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">capital</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: right;">28.351</td>
+<td style="text-align: right;">23.127</td>
+<td style="text-align: right;">5.339</td>
+<td style="text-align: right;">86.078</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">labor</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">90.604</td>
+<td style="text-align: right;">85.026</td>
+<td style="text-align: right;">21.063</td>
+<td style="text-align: right;">413.784</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">capital</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: right;">29.767</td>
+<td style="text-align: right;">30.908</td>
+<td style="text-align: right;">2.288</td>
+<td style="text-align: right;">108.787</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">labor</td>
+<td style="text-align: right;">18</td>
+<td style="text-align: right;">96.609</td>
+<td style="text-align: right;">103.777</td>
+<td style="text-align: right;">20.507</td>
 <td style="text-align: right;">419.848</td>
 </tr>
 </tbody>
@@ -309,201 +401,260 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-</section>
-<section id="xtset" class="level2" data-number="6.4">
-<h2 data-number="6.4" class="anchored" data-anchor-id="xtset"><span class="header-section-number">6.4</span> xtset</h2>
-<p>You can set up a panel structure in advance so that you don’t have to do it later each time you use other functions. Note that if <code>delta</code> is supplied, the function checks for omitted time periods. If such periods exist, they will be taken into account when other functions work with this argument.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>panel <span class="ot">&lt;-</span> <span class="fu">make_panel</span>(production, <span class="at">index =</span> <span class="fu">c</span>(<span class="st">"firm"</span>, <span class="st">"year"</span>), <span class="at">delta =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="xtdes" class="level2" data-number="6.5">
-<h2 data-number="6.5" class="anchored" data-anchor-id="xtdes"><span class="header-section-number">6.5</span> xtdes</h2>
-<p><code>xtdes</code> command funcitonality can be reproduced by combining <code>describe_dimensions()</code>, <code>describe_balance()</code>, and <code>describe_patterns()</code> functions.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">describe_dimensions</span>(panel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>modelsummary<span class="sc">::</span><span class="fu">datasummary</span>(<span class="fu">Factor</span>(year) <span class="sc">*</span> (capital <span class="sc">+</span> labor) <span class="sc">~</span> N <span class="sc">+</span> Mean <span class="sc">+</span> Median <span class="sc">+</span> SD <span class="sc">+</span> Min <span class="sc">+</span> Max, <span class="at">data =</span> production)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="kable-table">
-<table class="caption-top table table-sm table-striped small">
-<thead>
-<tr class="header">
-<th style="text-align: right;">rows</th>
-<th style="text-align: right;">entities</th>
-<th style="text-align: right;">periods</th>
-<th style="text-align: right;">variables</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">180</td>
-<td style="text-align: right;">30</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">4</td>
-</tr>
-</tbody>
-</table>
+<!-- preamble start -->
+
+    <script>
+
+      function styleCell_vmk8tcos4yth2g05u8ps(i, j, css_id) {
+          var table = document.getElementById("tinytable_vmk8tcos4yth2g05u8ps");
+          var cell = table.rows[i]?.cells[j];  // Safe navigation to avoid errors
+          if (cell) {
+              console.log(`Styling cell at (${i}, ${j}) with class ${css_id}`);
+              cell.classList.add(css_id);
+          } else {
+              console.warn(`Cell at (${i}, ${j}) not found.`);
+          }
+      }
+      function insertSpanRow(i, colspan, content) {
+        var table = document.getElementById('tinytable_vmk8tcos4yth2g05u8ps');
+        var newRow = table.insertRow(i);
+        var newCell = newRow.insertCell(0);
+        newCell.setAttribute("colspan", colspan);
+        // newCell.innerText = content;
+        // this may be unsafe, but innerText does not interpret <br>
+        newCell.innerHTML = content;
+      }
+      function spanCell_vmk8tcos4yth2g05u8ps(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_vmk8tcos4yth2g05u8ps");
+        const targetRow = table.rows[i];
+        const targetCell = targetRow.cells[j];
+        for (let r = 0; r < rowspan; r++) {
+          // Only start deleting cells to the right for the first row (r == 0)
+          if (r === 0) {
+            // Delete cells to the right of the target cell in the first row
+            for (let c = colspan - 1; c > 0; c--) {
+              if (table.rows[i + r].cells[j + c]) {
+                table.rows[i + r].deleteCell(j + c);
+              }
+            }
+          }
+          // For rows below the first, delete starting from the target column
+          if (r > 0) {
+            for (let c = colspan - 1; c >= 0; c--) {
+              if (table.rows[i + r] && table.rows[i + r].cells[j]) {
+                table.rows[i + r].deleteCell(j);
+              }
+            }
+          }
+        }
+        // Set rowspan and colspan of the target cell
+        targetCell.rowSpan = rowspan;
+        targetCell.colSpan = colspan;
+      }
+      // tinytable span after
+      window.addEventListener('load', function () {
+          var cellsToStyle = [
+            // tinytable style arrays after
+          { positions: [ { i: 12, j: 2 }, { i: 12, j: 3 }, { i: 12, j: 4 }, { i: 12, j: 5 }, { i: 12, j: 6 }, { i: 12, j: 7 },  ], css_id: 'tinytable_css_bte440nzdiuxm2gfpjzo',}, 
+          { positions: [ { i: 2, j: 2 }, { i: 3, j: 2 }, { i: 4, j: 2 }, { i: 1, j: 2 }, { i: 6, j: 2 }, { i: 7, j: 2 }, { i: 8, j: 2 }, { i: 5, j: 2 }, { i: 10, j: 2 }, { i: 11, j: 2 }, { i: 3, j: 3 }, { i: 9, j: 2 }, { i: 1, j: 3 }, { i: 2, j: 3 }, { i: 7, j: 3 }, { i: 4, j: 3 }, { i: 5, j: 3 }, { i: 6, j: 3 }, { i: 11, j: 3 }, { i: 8, j: 3 }, { i: 9, j: 3 }, { i: 10, j: 3 }, { i: 2, j: 4 }, { i: 3, j: 4 }, { i: 4, j: 4 }, { i: 1, j: 4 }, { i: 6, j: 4 }, { i: 7, j: 4 }, { i: 8, j: 4 }, { i: 5, j: 4 }, { i: 10, j: 4 }, { i: 11, j: 4 }, { i: 3, j: 5 }, { i: 9, j: 4 }, { i: 1, j: 5 }, { i: 2, j: 5 }, { i: 7, j: 5 }, { i: 4, j: 5 }, { i: 5, j: 5 }, { i: 6, j: 5 }, { i: 11, j: 5 }, { i: 8, j: 5 }, { i: 9, j: 5 }, { i: 10, j: 5 }, { i: 2, j: 6 }, { i: 3, j: 6 }, { i: 4, j: 6 }, { i: 1, j: 6 }, { i: 6, j: 6 }, { i: 7, j: 6 }, { i: 8, j: 6 }, { i: 5, j: 6 }, { i: 10, j: 6 }, { i: 11, j: 6 }, { i: 3, j: 7 }, { i: 9, j: 6 }, { i: 1, j: 7 }, { i: 2, j: 7 }, { i: 7, j: 7 }, { i: 4, j: 7 }, { i: 5, j: 7 }, { i: 6, j: 7 }, { i: 11, j: 7 }, { i: 8, j: 7 }, { i: 9, j: 7 }, { i: 10, j: 7 },  ], css_id: 'tinytable_css_18t6bgtxmdnu4nh5io3k',}, 
+          { positions: [ { i: 0, j: 2 }, { i: 0, j: 3 }, { i: 0, j: 4 }, { i: 0, j: 5 }, { i: 0, j: 6 }, { i: 0, j: 7 },  ], css_id: 'tinytable_css_21adwi9s4c8s93u1g4d3',}, 
+          { positions: [ { i: 12, j: 0 }, { i: 12, j: 1 },  ], css_id: 'tinytable_css_98nsna71ups7mv47gpuo',}, 
+          { positions: [ { i: 2, j: 0 }, { i: 3, j: 0 }, { i: 4, j: 0 }, { i: 1, j: 0 }, { i: 6, j: 0 }, { i: 7, j: 0 }, { i: 8, j: 0 }, { i: 5, j: 0 }, { i: 10, j: 0 }, { i: 11, j: 0 }, { i: 3, j: 1 }, { i: 9, j: 0 }, { i: 1, j: 1 }, { i: 2, j: 1 }, { i: 7, j: 1 }, { i: 4, j: 1 }, { i: 5, j: 1 }, { i: 6, j: 1 }, { i: 11, j: 1 }, { i: 8, j: 1 }, { i: 9, j: 1 }, { i: 10, j: 1 },  ], css_id: 'tinytable_css_lpchyuh6srgwz3qmbvju',}, 
+          { positions: [ { i: 0, j: 0 }, { i: 0, j: 1 },  ], css_id: 'tinytable_css_opbctaz1rtbue5yjpd5a',}, 
+          ];
+
+          // Loop over the arrays to style the cells
+          cellsToStyle.forEach(function (group) {
+              group.positions.forEach(function (cell) {
+                  styleCell_vmk8tcos4yth2g05u8ps(cell.i, cell.j, group.css_id);
+              });
+          });
+      });
+    </script>
+
+    <style>
+      /* tinytable css entries after */
+      .table td.tinytable_css_bte440nzdiuxm2gfpjzo, .table th.tinytable_css_bte440nzdiuxm2gfpjzo { text-align: right; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_18t6bgtxmdnu4nh5io3k, .table th.tinytable_css_18t6bgtxmdnu4nh5io3k { text-align: right; }
+      .table td.tinytable_css_21adwi9s4c8s93u1g4d3, .table th.tinytable_css_21adwi9s4c8s93u1g4d3 { text-align: right; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_98nsna71ups7mv47gpuo, .table th.tinytable_css_98nsna71ups7mv47gpuo { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_lpchyuh6srgwz3qmbvju, .table th.tinytable_css_lpchyuh6srgwz3qmbvju { text-align: left; }
+      .table td.tinytable_css_opbctaz1rtbue5yjpd5a, .table th.tinytable_css_opbctaz1rtbue5yjpd5a { text-align: left; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
+    </style>
+    <div class="container">
+      <table class="table table-borderless" id="tinytable_vmk8tcos4yth2g05u8ps" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+        <thead>
+        
+              <tr>
+                <th scope="col">year</th>
+                <th scope="col"> </th>
+                <th scope="col">N</th>
+                <th scope="col">Mean</th>
+                <th scope="col">Median</th>
+                <th scope="col">SD</th>
+                <th scope="col">Min</th>
+                <th scope="col">Max</th>
+              </tr>
+        </thead>
+        
+        <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>capital</td>
+                  <td>24</td>
+                  <td>24.86</td>
+                  <td>21.32</td>
+                  <td>16.27</td>
+                  <td>0.97</td>
+                  <td>65.95</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>labor</td>
+                  <td>25</td>
+                  <td>68.87</td>
+                  <td>39.44</td>
+                  <td>66.94</td>
+                  <td>4.10</td>
+                  <td>246.85</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>capital</td>
+                  <td>27</td>
+                  <td>28.79</td>
+                  <td>18.90</td>
+                  <td>31.05</td>
+                  <td>3.15</td>
+                  <td>151.46</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>labor</td>
+                  <td>27</td>
+                  <td>60.46</td>
+                  <td>45.41</td>
+                  <td>48.48</td>
+                  <td>11.69</td>
+                  <td>222.76</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>capital</td>
+                  <td>30</td>
+                  <td>35.46</td>
+                  <td>26.99</td>
+                  <td>39.17</td>
+                  <td>4.73</td>
+                  <td>194.72</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>labor</td>
+                  <td>29</td>
+                  <td>90.44</td>
+                  <td>62.88</td>
+                  <td>82.63</td>
+                  <td>9.28</td>
+                  <td>414.84</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>capital</td>
+                  <td>29</td>
+                  <td>44.52</td>
+                  <td>43.31</td>
+                  <td>35.38</td>
+                  <td>5.08</td>
+                  <td>132.90</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>labor</td>
+                  <td>29</td>
+                  <td>73.97</td>
+                  <td>58.99</td>
+                  <td>54.00</td>
+                  <td>16.33</td>
+                  <td>240.73</td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>capital</td>
+                  <td>25</td>
+                  <td>28.35</td>
+                  <td>20.15</td>
+                  <td>23.13</td>
+                  <td>5.34</td>
+                  <td>86.08</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>labor</td>
+                  <td>26</td>
+                  <td>90.60</td>
+                  <td>73.02</td>
+                  <td>85.03</td>
+                  <td>21.06</td>
+                  <td>413.78</td>
+                </tr>
+                <tr>
+                  <td>6</td>
+                  <td>capital</td>
+                  <td>19</td>
+                  <td>29.77</td>
+                  <td>15.40</td>
+                  <td>30.91</td>
+                  <td>2.29</td>
+                  <td>108.79</td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>labor</td>
+                  <td>18</td>
+                  <td>96.61</td>
+                  <td>55.89</td>
+                  <td>103.78</td>
+                  <td>20.51</td>
+                  <td>419.85</td>
+                </tr>
+        </tbody>
+      </table>
+    </div>
+<!-- hack to avoid NA insertion in last line -->
+</div>
+</div>
+</section>
+<section id="bamboo-vs.-gplots" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="bamboo-vs.-gplots"><span class="header-section-number">7.5</span> bamboo vs.&nbsp;gplots</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>bamboo<span class="sc">::</span><span class="fu">plot_heterogeneity</span>(production, <span class="at">select =</span> <span class="st">"sales"</span>, <span class="at">group =</span> <span class="st">"year"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="05_comparison_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">describe_balance</span>(panel, <span class="at">detail =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>gplots<span class="sc">::</span><span class="fu">plotmeans</span>(sales <span class="sc">~</span> year, production)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="kable-table">
-<table class="caption-top table table-sm table-striped small">
-<thead>
-<tr class="header">
-<th style="text-align: left;">dimension</th>
-<th style="text-align: right;">mean</th>
-<th style="text-align: right;">std</th>
-<th style="text-align: right;">min</th>
-<th style="text-align: right;">p5</th>
-<th style="text-align: right;">p25</th>
-<th style="text-align: right;">p50</th>
-<th style="text-align: right;">p75</th>
-<th style="text-align: right;">p95</th>
-<th style="text-align: right;">max</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">entities</td>
-<td style="text-align: right;">26.167</td>
-<td style="text-align: right;">3.971</td>
-<td style="text-align: right;">19</td>
-<td style="text-align: right;">20.5</td>
-<td style="text-align: right;">25.25</td>
-<td style="text-align: right;">27</td>
-<td style="text-align: right;">28.75</td>
-<td style="text-align: right;">29.75</td>
-<td style="text-align: right;">30</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">periods</td>
-<td style="text-align: right;">5.233</td>
-<td style="text-align: right;">0.935</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">4.0</td>
-<td style="text-align: right;">4.25</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">6.00</td>
-<td style="text-align: right;">6.00</td>
-<td style="text-align: right;">6</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">describe_patterns</span>(panel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="kable-table">
-<table class="caption-top table table-sm table-striped small">
-<thead>
-<tr class="header">
-<th style="text-align: right;">pattern</th>
-<th style="text-align: right;">1</th>
-<th style="text-align: right;">2</th>
-<th style="text-align: right;">3</th>
-<th style="text-align: right;">4</th>
-<th style="text-align: right;">5</th>
-<th style="text-align: right;">6</th>
-<th style="text-align: right;">count</th>
-<th style="text-align: right;">share</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">16</td>
-<td style="text-align: right;">0.533</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">0.167</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0.100</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">0.067</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">0.067</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0.033</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0.033</td>
-</tr>
-</tbody>
-</table>
+<div>
+<figure class="figure">
+<p><img src="05_comparison_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
 </div>
 </div>
 </section>
-<section id="xtsum" class="level2" data-number="6.6">
-<h2 data-number="6.6" class="anchored" data-anchor-id="xtsum"><span class="header-section-number">6.6</span> xtsum</h2>
-<p><code>xtsum</code> command funcitonality can be reproduced with <code>decompose_numeric()</code> function.</p>
+<section id="bamboo-vs.-xtsum" class="level2" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="bamboo-vs.-xtsum"><span class="header-section-number">7.6</span> bamboo vs.&nbsp;xtsum</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">decompose_numeric</span>(panel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Analyzing all numeric variables: sales, capital, labor</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>bamboo<span class="sc">::</span><span class="fu">decompose_numeric</span>(production, <span class="at">select =</span> <span class="fu">c</span>(<span class="st">"sales"</span>, <span class="st">"capital"</span>, <span class="st">"labor"</span>), <span class="at">index =</span> <span class="st">"firm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="kable-table">
 <table class="caption-top table table-sm table-striped small">
@@ -605,113 +756,132 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-</section>
-<section id="xttab" class="level2" data-number="6.7">
-<h2 data-number="6.7" class="anchored" data-anchor-id="xttab"><span class="header-section-number">6.7</span> xttab</h2>
-<p><code>xttab</code> command funcitonality can be reproduced with <code>decompose_factor()</code> function.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">decompose_factor</span>(panel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Analyzing all factor variables: industry</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>xtsum<span class="sc">::</span><span class="fu">xtsum</span>(production, <span class="at">variables =</span> <span class="fu">c</span>(<span class="st">"sales"</span>, <span class="st">"capital"</span>, <span class="st">"labor"</span>), <span class="at">id =</span> <span class="st">"firm"</span>, <span class="at">t =</span> <span class="st">"year"</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="kable-table">
-<table class="caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 10%">
-<col style="width: 12%">
-<col style="width: 15%">
-<col style="width: 15%">
-<col style="width: 15%">
-<col style="width: 15%">
-<col style="width: 14%">
-</colgroup>
+<table class="lightable-classic caption-top table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
-<th style="text-align: left;">variable</th>
-<th style="text-align: left;">category</th>
-<th style="text-align: right;">count_overall</th>
-<th style="text-align: right;">share_overall</th>
-<th style="text-align: right;">count_between</th>
-<th style="text-align: right;">share_between</th>
-<th style="text-align: right;">share_within</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Variable</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Dim</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Mean</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">SD</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Min</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Max</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Observations</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">industry</td>
-<td style="text-align: left;">Industry 1</td>
-<td style="text-align: right;">63</td>
-<td style="text-align: right;">0.401</td>
-<td style="text-align: right;">13</td>
-<td style="text-align: right;">0.433</td>
-<td style="text-align: right;">0.918</td>
+<td style="text-align: left;">___________</td>
+<td style="text-align: left;">_________</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">industry</td>
-<td style="text-align: left;">Industry 2</td>
-<td style="text-align: right;">45</td>
-<td style="text-align: right;">0.287</td>
-<td style="text-align: right;">11</td>
-<td style="text-align: right;">0.367</td>
-<td style="text-align: right;">0.809</td>
+<td style="text-align: left;">sales</td>
+<td style="text-align: left;">overall</td>
+<td style="text-align: left;">69.756</td>
+<td style="text-align: left;">46.804</td>
+<td style="text-align: left;">8.321</td>
+<td style="text-align: left;">336.853</td>
+<td style="text-align: left;">N = 154</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">industry</td>
-<td style="text-align: left;">Industry 3</td>
-<td style="text-align: right;">49</td>
-<td style="text-align: right;">0.312</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">0.333</td>
-<td style="text-align: right;">0.917</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">between</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">29.776</td>
+<td style="text-align: left;">25.772</td>
+<td style="text-align: left;">159.197</td>
+<td style="text-align: left;">n = 30</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">within</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">35.862</td>
+<td style="text-align: left;">-28.397</td>
+<td style="text-align: left;">247.412</td>
+<td style="text-align: left;">T = 5.133</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">___________</td>
+<td style="text-align: left;">_________</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">capital</td>
+<td style="text-align: left;">overall</td>
+<td style="text-align: left;">32.49</td>
+<td style="text-align: left;">31.053</td>
+<td style="text-align: left;">0.968</td>
+<td style="text-align: left;">194.719</td>
+<td style="text-align: left;">N = 154</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">between</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">13.969</td>
+<td style="text-align: left;">8.671</td>
+<td style="text-align: left;">75.083</td>
+<td style="text-align: left;">n = 30</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">within</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">27.701</td>
+<td style="text-align: left;">-22.444</td>
+<td style="text-align: left;">152.126</td>
+<td style="text-align: left;">T = 5.133</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">___________</td>
+<td style="text-align: left;">_________</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">labor</td>
+<td style="text-align: left;">overall</td>
+<td style="text-align: left;">79.329</td>
+<td style="text-align: left;">73.687</td>
+<td style="text-align: left;">4.097</td>
+<td style="text-align: left;">419.848</td>
+<td style="text-align: left;">N = 154</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">between</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">44.023</td>
+<td style="text-align: left;">24.606</td>
+<td style="text-align: left;">175.731</td>
+<td style="text-align: left;">n = 30</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: left;">within</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">59.561</td>
+<td style="text-align: left;">-77.709</td>
+<td style="text-align: left;">323.445</td>
+<td style="text-align: left;">T = 5.133</td>
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-</div>
-</section>
-<section id="xttrans" class="level2" data-number="6.8">
-<h2 data-number="6.8" class="anchored" data-anchor-id="xttrans"><span class="header-section-number">6.8</span> xttrans</h2>
-<p><code>xttrans</code> command funcitonality can be reproduced with <code>summarize_transition()</code> function.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarize_transition</span>(panel, <span class="at">select =</span> <span class="st">"industry"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>23 rows with NA values in 'industry' removed.</code></pre>
-</div>
-<div class="cell-output-display">
-<div class="kable-table">
-<table class="caption-top table table-sm table-striped small">
-<thead>
-<tr class="header">
-<th style="text-align: left;">from_to</th>
-<th style="text-align: right;">Industry 1</th>
-<th style="text-align: right;">Industry 2</th>
-<th style="text-align: right;">Industry 3</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Industry 1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0.054</td>
-<td style="text-align: right;">0.000</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Industry 2</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0.919</td>
-<td style="text-align: right;">0.025</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Industry 3</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0.027</td>
-<td style="text-align: right;">0.975</td>
-</tr>
-</tbody>
-</table>
-</div>
 </div>
 </div>
 
@@ -1120,14 +1290,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./03_extend.html" class="pagination-link" aria-label="Extended example">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Extended example</span></span>
+      <a href="./04_Stata.html" class="pagination-link" aria-label="For Stata users">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">For Stata users</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./05_comparison.html" class="pagination-link" aria-label="Comparison with other packages">
-        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Comparison with other packages</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->

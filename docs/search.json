@@ -288,5 +288,65 @@
     "crumbs": [
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>For Stata users</span>"
     ]
+  },
+  {
+    "objectID": "05_comparison.html",
+    "href": "05_comparison.html",
+    "title": "7  Comparison with other packages",
+    "section": "",
+    "text": "7.1 Set up\nAlmost all of this package’s functionality can be replicated using individual functions from other packages. However, I believe the main advantage of the bamboo package is that it combines all the functions necessary for panel data analysis and implements them in a single format. Below is a comparison with individual functions from other packages.\nImport packages to compare.\nlibrary(bamboo)\nlibrary(gplots)\nlibrary(modelsummary)\nlibrary(pdynmc)\nlibrary(xtsum)",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Comparison with other packages</span>"
+    ]
+  },
+  {
+    "objectID": "05_comparison.html#data-import",
+    "href": "05_comparison.html#data-import",
+    "title": "7  Comparison with other packages",
+    "section": "7.2 Data import",
+    "text": "7.2 Data import\nImport the built-in dataset with simulated unbalanced panel data.\n\ndata(production)",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Comparison with other packages</span>"
+    ]
+  },
+  {
+    "objectID": "05_comparison.html#bamboo-vs.-pdynmc",
+    "href": "05_comparison.html#bamboo-vs.-pdynmc",
+    "title": "7  Comparison with other packages",
+    "section": "7.3 bamboo vs. pdynmc",
+    "text": "7.3 bamboo vs. pdynmc\n\nbamboo::plot_patterns(production, index = c(\"firm\", \"year\"))\n\n\n\n\n\n\n\n\n\nunbalanced &lt;- production[rowSums(!is.na(production[, c(\"sales\", \"capital\", \"labor\", \"industry\")])) &gt; 0, ]\npdynmc::strucUPD.plot(unbalanced, i.name = \"firm\", t.name = \"year\")",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Comparison with other packages</span>"
+    ]
+  },
+  {
+    "objectID": "05_comparison.html#bamboo-vs.-modelsummary",
+    "href": "05_comparison.html#bamboo-vs.-modelsummary",
+    "title": "7  Comparison with other packages",
+    "section": "7.4 bamboo vs. modelsummary",
+    "text": "7.4 bamboo vs. modelsummary\n\nbamboo::summarize_numeric(production, select = c(\"capital\", \"labor\"), group = \"year\")\n\n\n\n\n\nyear\nvariable\ncount\nmean\nstd\nmin\nmax\n\n\n\n\n1\ncapital\n24\n24.862\n16.273\n0.968\n65.950\n\n\n1\nlabor\n25\n68.871\n66.941\n4.097\n246.852\n\n\n2\ncapital\n27\n28.790\n31.053\n3.150\n151.464\n\n\n2\nlabor\n27\n60.463\n48.484\n11.692\n222.761\n\n\n3\ncapital\n30\n35.464\n39.174\n4.729\n194.719\n\n\n3\nlabor\n29\n90.437\n82.628\n9.284\n414.844\n\n\n4\ncapital\n29\n44.522\n35.375\n5.080\n132.898\n\n\n4\nlabor\n29\n73.967\n54.005\n16.327\n240.726\n\n\n5\ncapital\n25\n28.351\n23.127\n5.339\n86.078\n\n\n5\nlabor\n26\n90.604\n85.026\n21.063\n413.784\n\n\n6\ncapital\n19\n29.767\n30.908\n2.288\n108.787\n\n\n6\nlabor\n18\n96.609\n103.777\n20.507\n419.848\n\n\n\n\n\n\n\nmodelsummary::datasummary(Factor(year) * (capital + labor) ~ N + Mean + Median + SD + Min + Max, data = production)\n\n\n\n    \n\n    \n    \n      \n        \n        \n              \n                year\n                 \n                N\n                Mean\n                Median\n                SD\n                Min\n                Max\n              \n        \n        \n        \n                \n                  1\n                  capital\n                  24\n                  24.86\n                  21.32\n                  16.27\n                  0.97\n                  65.95\n                \n                \n                  \n                  labor\n                  25\n                  68.87\n                  39.44\n                  66.94\n                  4.10\n                  246.85\n                \n                \n                  2\n                  capital\n                  27\n                  28.79\n                  18.90\n                  31.05\n                  3.15\n                  151.46\n                \n                \n                  \n                  labor\n                  27\n                  60.46\n                  45.41\n                  48.48\n                  11.69\n                  222.76\n                \n                \n                  3\n                  capital\n                  30\n                  35.46\n                  26.99\n                  39.17\n                  4.73\n                  194.72\n                \n                \n                  \n                  labor\n                  29\n                  90.44\n                  62.88\n                  82.63\n                  9.28\n                  414.84\n                \n                \n                  4\n                  capital\n                  29\n                  44.52\n                  43.31\n                  35.38\n                  5.08\n                  132.90\n                \n                \n                  \n                  labor\n                  29\n                  73.97\n                  58.99\n                  54.00\n                  16.33\n                  240.73\n                \n                \n                  5\n                  capital\n                  25\n                  28.35\n                  20.15\n                  23.13\n                  5.34\n                  86.08\n                \n                \n                  \n                  labor\n                  26\n                  90.60\n                  73.02\n                  85.03\n                  21.06\n                  413.78\n                \n                \n                  6\n                  capital\n                  19\n                  29.77\n                  15.40\n                  30.91\n                  2.29\n                  108.79\n                \n                \n                  \n                  labor\n                  18\n                  96.61\n                  55.89\n                  103.78\n                  20.51\n                  419.85",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Comparison with other packages</span>"
+    ]
+  },
+  {
+    "objectID": "05_comparison.html#bamboo-vs.-gplots",
+    "href": "05_comparison.html#bamboo-vs.-gplots",
+    "title": "7  Comparison with other packages",
+    "section": "7.5 bamboo vs. gplots",
+    "text": "7.5 bamboo vs. gplots\n\nbamboo::plot_heterogeneity(production, select = \"sales\", group = \"year\")\n\n\n\n\n\n\n\n\n\ngplots::plotmeans(sales ~ year, production)",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Comparison with other packages</span>"
+    ]
+  },
+  {
+    "objectID": "05_comparison.html#bamboo-vs.-xtsum",
+    "href": "05_comparison.html#bamboo-vs.-xtsum",
+    "title": "7  Comparison with other packages",
+    "section": "7.6 bamboo vs. xtsum",
+    "text": "7.6 bamboo vs. xtsum\n\nbamboo::decompose_numeric(production, select = c(\"sales\", \"capital\", \"labor\"), index = \"firm\")\n\n\n\n\n\nvariable\ndimension\nmean\nstd\nmin\nmax\ncount\n\n\n\n\nsales\noverall\n69.756\n46.804\n8.321\n336.853\n154.000\n\n\nsales\nbetween\nNA\n29.776\n25.772\n159.197\n30.000\n\n\nsales\nwithin\nNA\n35.862\n-28.397\n247.412\n5.133\n\n\ncapital\noverall\n32.490\n31.053\n0.968\n194.719\n154.000\n\n\ncapital\nbetween\nNA\n13.969\n8.671\n75.083\n30.000\n\n\ncapital\nwithin\nNA\n27.701\n-22.444\n152.126\n5.133\n\n\nlabor\noverall\n79.329\n73.687\n4.097\n419.848\n154.000\n\n\nlabor\nbetween\nNA\n44.023\n24.606\n175.731\n30.000\n\n\nlabor\nwithin\nNA\n59.561\n-77.709\n323.445\n5.133\n\n\n\n\n\n\n\nxtsum::xtsum(production, variables = c(\"sales\", \"capital\", \"labor\"), id = \"firm\", t = \"year\", na.rm = TRUE)\n\n\n\n\nVariable\nDim\nMean\nSD\nMin\nMax\nObservations\n\n\n\n\n___________\n_________\n\n\n\n\n\n\n\nsales\noverall\n69.756\n46.804\n8.321\n336.853\nN = 154\n\n\n\nbetween\n\n29.776\n25.772\n159.197\nn = 30\n\n\n\nwithin\n\n35.862\n-28.397\n247.412\nT = 5.133\n\n\n___________\n_________\n\n\n\n\n\n\n\ncapital\noverall\n32.49\n31.053\n0.968\n194.719\nN = 154\n\n\n\nbetween\n\n13.969\n8.671\n75.083\nn = 30\n\n\n\nwithin\n\n27.701\n-22.444\n152.126\nT = 5.133\n\n\n___________\n_________\n\n\n\n\n\n\n\nlabor\noverall\n79.329\n73.687\n4.097\n419.848\nN = 154\n\n\n\nbetween\n\n44.023\n24.606\n175.731\nn = 30\n\n\n\nwithin\n\n59.561\n-77.709\n323.445\nT = 5.133",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Comparison with other packages</span>"
+    ]
   }
 ]

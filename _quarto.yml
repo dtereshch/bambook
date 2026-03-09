@@ -13,6 +13,7 @@ book:
     - 02_panel.qmd
     - 03_extend.qmd
     - 04_Stata.qmd
+    - 05_comparison.qmd
 
 
 format:
