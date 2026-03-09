@@ -201,6 +201,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#bamboo-vs.-modelsummary" id="toc-bamboo-vs.-modelsummary" class="nav-link" data-scroll-target="#bamboo-vs.-modelsummary"><span class="header-section-number">7.4</span> bamboo vs.&nbsp;modelsummary</a></li>
   <li><a href="#bamboo-vs.-gplots" id="toc-bamboo-vs.-gplots" class="nav-link" data-scroll-target="#bamboo-vs.-gplots"><span class="header-section-number">7.5</span> bamboo vs.&nbsp;gplots</a></li>
   <li><a href="#bamboo-vs.-xtsum" id="toc-bamboo-vs.-xtsum" class="nav-link" data-scroll-target="#bamboo-vs.-xtsum"><span class="header-section-number">7.6</span> bamboo vs.&nbsp;xtsum</a></li>
+  <li><a href="#bamboo-vs.-plm" id="toc-bamboo-vs.-plm" class="nav-link" data-scroll-target="#bamboo-vs.-plm"><span class="header-section-number">7.7</span> bamboo vs.&nbsp;plm</a></li>
   </ul>
 </nav>
     </div>
@@ -234,8 +235,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(bamboo)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gplots)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelsummary)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pdynmc)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(xtsum)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plm)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pdynmc)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(xtsum)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="data-import" class="level2" data-number="7.2">
@@ -244,22 +246,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(production)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>Create unbalanced panel for the analysis purposes.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>unbalanced <span class="ot">&lt;-</span> production[<span class="fu">rowSums</span>(<span class="sc">!</span><span class="fu">is.na</span>(production[, <span class="fu">c</span>(<span class="st">"sales"</span>, <span class="st">"capital"</span>, <span class="st">"labor"</span>, <span class="st">"industry"</span>)])) <span class="sc">&gt;</span> <span class="dv">0</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="bamboo-vs.-pdynmc" class="level2" data-number="7.3">
 <h2 data-number="7.3" class="anchored" data-anchor-id="bamboo-vs.-pdynmc"><span class="header-section-number">7.3</span> bamboo vs.&nbsp;pdynmc</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>bamboo<span class="sc">::</span><span class="fu">plot_patterns</span>(production, <span class="at">index =</span> <span class="fu">c</span>(<span class="st">"firm"</span>, <span class="st">"year"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="05_comparison_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>unbalanced <span class="ot">&lt;-</span> production[<span class="fu">rowSums</span>(<span class="sc">!</span><span class="fu">is.na</span>(production[, <span class="fu">c</span>(<span class="st">"sales"</span>, <span class="st">"capital"</span>, <span class="st">"labor"</span>, <span class="st">"industry"</span>)])) <span class="sc">&gt;</span> <span class="dv">0</span>, ]</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>pdynmc<span class="sc">::</span><span class="fu">strucUPD.plot</span>(unbalanced, <span class="at">i.name =</span> <span class="st">"firm"</span>, <span class="at">t.name =</span> <span class="st">"year"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>bamboo<span class="sc">::</span><span class="fu">plot_patterns</span>(production, <span class="at">index =</span> <span class="fu">c</span>(<span class="st">"firm"</span>, <span class="st">"year"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -268,11 +263,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>pdynmc<span class="sc">::</span><span class="fu">strucUPD.plot</span>(unbalanced, <span class="at">i.name =</span> <span class="st">"firm"</span>, <span class="at">t.name =</span> <span class="st">"year"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="05_comparison_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="bamboo-vs.-modelsummary" class="level2" data-number="7.4">
 <h2 data-number="7.4" class="anchored" data-anchor-id="bamboo-vs.-modelsummary"><span class="header-section-number">7.4</span> bamboo vs.&nbsp;modelsummary</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>bamboo<span class="sc">::</span><span class="fu">summarize_numeric</span>(production, <span class="at">select =</span> <span class="fu">c</span>(<span class="st">"capital"</span>, <span class="st">"labor"</span>), <span class="at">group =</span> <span class="st">"year"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>bamboo<span class="sc">::</span><span class="fu">summarize_numeric</span>(production, <span class="at">select =</span> <span class="fu">c</span>(<span class="st">"capital"</span>, <span class="st">"labor"</span>), <span class="at">group =</span> <span class="st">"year"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="kable-table">
 <table class="caption-top table table-sm table-striped small">
@@ -402,14 +407,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>modelsummary<span class="sc">::</span><span class="fu">datasummary</span>(<span class="fu">Factor</span>(year) <span class="sc">*</span> (capital <span class="sc">+</span> labor) <span class="sc">~</span> N <span class="sc">+</span> Mean <span class="sc">+</span> Median <span class="sc">+</span> SD <span class="sc">+</span> Min <span class="sc">+</span> Max, <span class="at">data =</span> production)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>modelsummary<span class="sc">::</span><span class="fu">datasummary</span>(<span class="fu">Factor</span>(year) <span class="sc">*</span> (capital <span class="sc">+</span> labor) <span class="sc">~</span> N <span class="sc">+</span> Mean <span class="sc">+</span> SD <span class="sc">+</span> Min <span class="sc">+</span> Max, <span class="at">data =</span> production)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <!-- preamble start -->
 
     <script>
 
-      function styleCell_4zgo7ln3jee4sqnlpfuw(i, j, css_id) {
-          var table = document.getElementById("tinytable_4zgo7ln3jee4sqnlpfuw");
+      function styleCell_ol9to7q32a99r3pfc8ne(i, j, css_id) {
+          var table = document.getElementById("tinytable_ol9to7q32a99r3pfc8ne");
           var cell = table.rows[i]?.cells[j];  // Safe navigation to avoid errors
           if (cell) {
               console.log(`Styling cell at (${i}, ${j}) with class ${css_id}`);
@@ -419,7 +424,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           }
       }
       function insertSpanRow(i, colspan, content) {
-        var table = document.getElementById('tinytable_4zgo7ln3jee4sqnlpfuw');
+        var table = document.getElementById('tinytable_ol9to7q32a99r3pfc8ne');
         var newRow = table.insertRow(i);
         var newCell = newRow.insertCell(0);
         newCell.setAttribute("colspan", colspan);
@@ -427,8 +432,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         // this may be unsafe, but innerText does not interpret <br>
         newCell.innerHTML = content;
       }
-      function spanCell_4zgo7ln3jee4sqnlpfuw(i, j, rowspan, colspan) {
-        var table = document.getElementById("tinytable_4zgo7ln3jee4sqnlpfuw");
+      function spanCell_ol9to7q32a99r3pfc8ne(i, j, rowspan, colspan) {
+        var table = document.getElementById("tinytable_ol9to7q32a99r3pfc8ne");
         const targetRow = table.rows[i];
         const targetCell = targetRow.cells[j];
         for (let r = 0; r < rowspan; r++) {
@@ -458,18 +463,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       window.addEventListener('load', function () {
           var cellsToStyle = [
             // tinytable style arrays after
-          { positions: [ { i: 12, j: 2 }, { i: 12, j: 3 }, { i: 12, j: 4 }, { i: 12, j: 5 }, { i: 12, j: 6 }, { i: 12, j: 7 },  ], css_id: 'tinytable_css_c0yohn81sq97e8633mr3',}, 
-          { positions: [ { i: 2, j: 2 }, { i: 3, j: 2 }, { i: 4, j: 2 }, { i: 1, j: 2 }, { i: 6, j: 2 }, { i: 7, j: 2 }, { i: 8, j: 2 }, { i: 5, j: 2 }, { i: 10, j: 2 }, { i: 11, j: 2 }, { i: 3, j: 3 }, { i: 9, j: 2 }, { i: 1, j: 3 }, { i: 2, j: 3 }, { i: 7, j: 3 }, { i: 4, j: 3 }, { i: 5, j: 3 }, { i: 6, j: 3 }, { i: 11, j: 3 }, { i: 8, j: 3 }, { i: 9, j: 3 }, { i: 10, j: 3 }, { i: 2, j: 4 }, { i: 3, j: 4 }, { i: 4, j: 4 }, { i: 1, j: 4 }, { i: 6, j: 4 }, { i: 7, j: 4 }, { i: 8, j: 4 }, { i: 5, j: 4 }, { i: 10, j: 4 }, { i: 11, j: 4 }, { i: 3, j: 5 }, { i: 9, j: 4 }, { i: 1, j: 5 }, { i: 2, j: 5 }, { i: 7, j: 5 }, { i: 4, j: 5 }, { i: 5, j: 5 }, { i: 6, j: 5 }, { i: 11, j: 5 }, { i: 8, j: 5 }, { i: 9, j: 5 }, { i: 10, j: 5 }, { i: 2, j: 6 }, { i: 3, j: 6 }, { i: 4, j: 6 }, { i: 1, j: 6 }, { i: 6, j: 6 }, { i: 7, j: 6 }, { i: 8, j: 6 }, { i: 5, j: 6 }, { i: 10, j: 6 }, { i: 11, j: 6 }, { i: 3, j: 7 }, { i: 9, j: 6 }, { i: 1, j: 7 }, { i: 2, j: 7 }, { i: 7, j: 7 }, { i: 4, j: 7 }, { i: 5, j: 7 }, { i: 6, j: 7 }, { i: 11, j: 7 }, { i: 8, j: 7 }, { i: 9, j: 7 }, { i: 10, j: 7 },  ], css_id: 'tinytable_css_8yvlbvx108yq493qfbo0',}, 
-          { positions: [ { i: 0, j: 2 }, { i: 0, j: 3 }, { i: 0, j: 4 }, { i: 0, j: 5 }, { i: 0, j: 6 }, { i: 0, j: 7 },  ], css_id: 'tinytable_css_0kjle6o96p4vr27bpf1m',}, 
-          { positions: [ { i: 12, j: 0 }, { i: 12, j: 1 },  ], css_id: 'tinytable_css_n9g7x998yxdea6lbumnk',}, 
-          { positions: [ { i: 2, j: 0 }, { i: 3, j: 0 }, { i: 4, j: 0 }, { i: 1, j: 0 }, { i: 6, j: 0 }, { i: 7, j: 0 }, { i: 8, j: 0 }, { i: 5, j: 0 }, { i: 10, j: 0 }, { i: 11, j: 0 }, { i: 3, j: 1 }, { i: 9, j: 0 }, { i: 1, j: 1 }, { i: 2, j: 1 }, { i: 7, j: 1 }, { i: 4, j: 1 }, { i: 5, j: 1 }, { i: 6, j: 1 }, { i: 11, j: 1 }, { i: 8, j: 1 }, { i: 9, j: 1 }, { i: 10, j: 1 },  ], css_id: 'tinytable_css_u2o1trtmeo864ciiso70',}, 
-          { positions: [ { i: 0, j: 0 }, { i: 0, j: 1 },  ], css_id: 'tinytable_css_nfxtmifklz7gh1udica1',}, 
+          { positions: [ { i: 12, j: 2 }, { i: 12, j: 3 }, { i: 12, j: 4 }, { i: 12, j: 5 }, { i: 12, j: 6 },  ], css_id: 'tinytable_css_g348x3c5zagxrlapvhwv',}, 
+          { positions: [ { i: 1, j: 2 }, { i: 2, j: 2 }, { i: 3, j: 2 }, { i: 4, j: 2 }, { i: 5, j: 2 }, { i: 6, j: 2 }, { i: 7, j: 2 }, { i: 8, j: 2 }, { i: 9, j: 2 }, { i: 10, j: 2 }, { i: 11, j: 2 }, { i: 3, j: 3 }, { i: 4, j: 3 }, { i: 1, j: 3 }, { i: 2, j: 3 }, { i: 7, j: 3 }, { i: 8, j: 3 }, { i: 5, j: 3 }, { i: 6, j: 3 }, { i: 11, j: 3 }, { i: 3, j: 4 }, { i: 9, j: 3 }, { i: 10, j: 3 }, { i: 2, j: 4 }, { i: 7, j: 4 }, { i: 4, j: 4 }, { i: 1, j: 4 }, { i: 6, j: 4 }, { i: 11, j: 4 }, { i: 8, j: 4 }, { i: 5, j: 4 }, { i: 10, j: 4 }, { i: 2, j: 5 }, { i: 3, j: 5 }, { i: 9, j: 4 }, { i: 1, j: 5 }, { i: 6, j: 5 }, { i: 7, j: 5 }, { i: 4, j: 5 }, { i: 5, j: 5 }, { i: 10, j: 5 }, { i: 11, j: 5 }, { i: 8, j: 5 }, { i: 9, j: 5 }, { i: 1, j: 6 }, { i: 2, j: 6 }, { i: 3, j: 6 }, { i: 4, j: 6 }, { i: 5, j: 6 }, { i: 6, j: 6 }, { i: 7, j: 6 }, { i: 8, j: 6 }, { i: 9, j: 6 }, { i: 10, j: 6 }, { i: 11, j: 6 },  ], css_id: 'tinytable_css_cuvpx92881xktd6nc0fs',}, 
+          { positions: [ { i: 0, j: 2 }, { i: 0, j: 3 }, { i: 0, j: 4 }, { i: 0, j: 5 }, { i: 0, j: 6 },  ], css_id: 'tinytable_css_uo947koj3c6dfwwi4z27',}, 
+          { positions: [ { i: 12, j: 0 }, { i: 12, j: 1 },  ], css_id: 'tinytable_css_k5gp435mkpkm8lgsvy92',}, 
+          { positions: [ { i: 2, j: 0 }, { i: 3, j: 0 }, { i: 4, j: 0 }, { i: 1, j: 0 }, { i: 6, j: 0 }, { i: 7, j: 0 }, { i: 8, j: 0 }, { i: 5, j: 0 }, { i: 10, j: 0 }, { i: 11, j: 0 }, { i: 3, j: 1 }, { i: 9, j: 0 }, { i: 1, j: 1 }, { i: 2, j: 1 }, { i: 7, j: 1 }, { i: 4, j: 1 }, { i: 5, j: 1 }, { i: 6, j: 1 }, { i: 11, j: 1 }, { i: 8, j: 1 }, { i: 9, j: 1 }, { i: 10, j: 1 },  ], css_id: 'tinytable_css_885de1exi9e7kwqvmwee',}, 
+          { positions: [ { i: 0, j: 0 }, { i: 0, j: 1 },  ], css_id: 'tinytable_css_p5p173bu9nj73uv2rkfm',}, 
           ];
 
           // Loop over the arrays to style the cells
           cellsToStyle.forEach(function (group) {
               group.positions.forEach(function (cell) {
-                  styleCell_4zgo7ln3jee4sqnlpfuw(cell.i, cell.j, group.css_id);
+                  styleCell_ol9to7q32a99r3pfc8ne(cell.i, cell.j, group.css_id);
               });
           });
       });
@@ -477,15 +482,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
     <style>
       /* tinytable css entries after */
-      .table td.tinytable_css_c0yohn81sq97e8633mr3, .table th.tinytable_css_c0yohn81sq97e8633mr3 { text-align: right; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_8yvlbvx108yq493qfbo0, .table th.tinytable_css_8yvlbvx108yq493qfbo0 { text-align: right; }
-      .table td.tinytable_css_0kjle6o96p4vr27bpf1m, .table th.tinytable_css_0kjle6o96p4vr27bpf1m { text-align: right; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
-      .table td.tinytable_css_n9g7x998yxdea6lbumnk, .table th.tinytable_css_n9g7x998yxdea6lbumnk { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
-      .table td.tinytable_css_u2o1trtmeo864ciiso70, .table th.tinytable_css_u2o1trtmeo864ciiso70 { text-align: left; }
-      .table td.tinytable_css_nfxtmifklz7gh1udica1, .table th.tinytable_css_nfxtmifklz7gh1udica1 { text-align: left; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_g348x3c5zagxrlapvhwv, .table th.tinytable_css_g348x3c5zagxrlapvhwv { text-align: right; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_cuvpx92881xktd6nc0fs, .table th.tinytable_css_cuvpx92881xktd6nc0fs { text-align: right; }
+      .table td.tinytable_css_uo947koj3c6dfwwi4z27, .table th.tinytable_css_uo947koj3c6dfwwi4z27 { text-align: right; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
+      .table td.tinytable_css_k5gp435mkpkm8lgsvy92, .table th.tinytable_css_k5gp435mkpkm8lgsvy92 { text-align: left; border-bottom: solid #d3d8dc 0.1em; }
+      .table td.tinytable_css_885de1exi9e7kwqvmwee, .table th.tinytable_css_885de1exi9e7kwqvmwee { text-align: left; }
+      .table td.tinytable_css_p5p173bu9nj73uv2rkfm, .table th.tinytable_css_p5p173bu9nj73uv2rkfm { text-align: left; border-top: solid #d3d8dc 0.1em; border-bottom: solid #d3d8dc 0.05em; }
     </style>
     <div class="container">
-      <table class="table table-borderless" id="tinytable_4zgo7ln3jee4sqnlpfuw" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
+      <table class="table table-borderless" id="tinytable_ol9to7q32a99r3pfc8ne" style="width: auto; margin-left: auto; margin-right: auto;" data-quarto-disable-processing="true">
         <thead>
         
               <tr>
@@ -493,7 +498,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
                 <th scope="col"> </th>
                 <th scope="col">N</th>
                 <th scope="col">Mean</th>
-                <th scope="col">Median</th>
                 <th scope="col">SD</th>
                 <th scope="col">Min</th>
                 <th scope="col">Max</th>
@@ -506,7 +510,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
                   <td>capital</td>
                   <td>24</td>
                   <td>24.86</td>
-                  <td>21.32</td>
                   <td>16.27</td>
                   <td>0.97</td>
                   <td>65.95</td>
@@ -516,7 +519,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
                   <td>labor</td>
                   <td>25</td>
                   <td>68.87</td>
-                  <td>39.44</td>
                   <td>66.94</td>
                   <td>4.10</td>
                   <td>246.85</td>
@@ -526,7 +528,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
                   <td>capital</td>
                   <td>27</td>
                   <td>28.79</td>
-                  <td>18.90</td>
                   <td>31.05</td>
                   <td>3.15</td>
                   <td>151.46</td>
@@ -536,7 +537,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
                   <td>labor</td>
                   <td>27</td>
                   <td>60.46</td>
-                  <td>45.41</td>
                   <td>48.48</td>
                   <td>11.69</td>
                   <td>222.76</td>
@@ -546,7 +546,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
                   <td>capital</td>
                   <td>30</td>
                   <td>35.46</td>
-                  <td>26.99</td>
                   <td>39.17</td>
                   <td>4.73</td>
                   <td>194.72</td>
@@ -556,7 +555,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
                   <td>labor</td>
                   <td>29</td>
                   <td>90.44</td>
-                  <td>62.88</td>
                   <td>82.63</td>
                   <td>9.28</td>
                   <td>414.84</td>
@@ -566,7 +564,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
                   <td>capital</td>
                   <td>29</td>
                   <td>44.52</td>
-                  <td>43.31</td>
                   <td>35.38</td>
                   <td>5.08</td>
                   <td>132.90</td>
@@ -576,7 +573,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
                   <td>labor</td>
                   <td>29</td>
                   <td>73.97</td>
-                  <td>58.99</td>
                   <td>54.00</td>
                   <td>16.33</td>
                   <td>240.73</td>
@@ -586,7 +582,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
                   <td>capital</td>
                   <td>25</td>
                   <td>28.35</td>
-                  <td>20.15</td>
                   <td>23.13</td>
                   <td>5.34</td>
                   <td>86.08</td>
@@ -596,7 +591,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
                   <td>labor</td>
                   <td>26</td>
                   <td>90.60</td>
-                  <td>73.02</td>
                   <td>85.03</td>
                   <td>21.06</td>
                   <td>413.78</td>
@@ -606,7 +600,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
                   <td>capital</td>
                   <td>19</td>
                   <td>29.77</td>
-                  <td>15.40</td>
                   <td>30.91</td>
                   <td>2.29</td>
                   <td>108.79</td>
@@ -616,7 +609,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
                   <td>labor</td>
                   <td>18</td>
                   <td>96.61</td>
-                  <td>55.89</td>
                   <td>103.78</td>
                   <td>20.51</td>
                   <td>419.85</td>
@@ -631,17 +623,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="bamboo-vs.-gplots" class="level2" data-number="7.5">
 <h2 data-number="7.5" class="anchored" data-anchor-id="bamboo-vs.-gplots"><span class="header-section-number">7.5</span> bamboo vs.&nbsp;gplots</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>bamboo<span class="sc">::</span><span class="fu">plot_heterogeneity</span>(production, <span class="at">select =</span> <span class="st">"sales"</span>, <span class="at">group =</span> <span class="st">"year"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="05_comparison_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>gplots<span class="sc">::</span><span class="fu">plotmeans</span>(sales <span class="sc">~</span> year, production)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>bamboo<span class="sc">::</span><span class="fu">plot_heterogeneity</span>(production, <span class="at">select =</span> <span class="st">"sales"</span>, <span class="at">group =</span> <span class="st">"year"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -650,11 +632,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>gplots<span class="sc">::</span><span class="fu">plotmeans</span>(sales <span class="sc">~</span> year, production)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="05_comparison_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="bamboo-vs.-xtsum" class="level2" data-number="7.6">
 <h2 data-number="7.6" class="anchored" data-anchor-id="bamboo-vs.-xtsum"><span class="header-section-number">7.6</span> bamboo vs.&nbsp;xtsum</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>bamboo<span class="sc">::</span><span class="fu">decompose_numeric</span>(production, <span class="at">select =</span> <span class="fu">c</span>(<span class="st">"sales"</span>, <span class="st">"capital"</span>, <span class="st">"labor"</span>), <span class="at">index =</span> <span class="st">"firm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>bamboo<span class="sc">::</span><span class="fu">decompose_numeric</span>(production, <span class="at">select =</span> <span class="fu">c</span>(<span class="st">"sales"</span>, <span class="st">"capital"</span>, <span class="st">"labor"</span>), <span class="at">index =</span> <span class="st">"firm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="kable-table">
 <table class="caption-top table table-sm table-striped small">
@@ -757,7 +749,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>xtsum<span class="sc">::</span><span class="fu">xtsum</span>(production, <span class="at">variables =</span> <span class="fu">c</span>(<span class="st">"sales"</span>, <span class="st">"capital"</span>, <span class="st">"labor"</span>), <span class="at">id =</span> <span class="st">"firm"</span>, <span class="at">t =</span> <span class="st">"year"</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>xtsum<span class="sc">::</span><span class="fu">xtsum</span>(production, <span class="at">variables =</span> <span class="fu">c</span>(<span class="st">"sales"</span>, <span class="st">"capital"</span>, <span class="st">"labor"</span>), <span class="at">id =</span> <span class="st">"firm"</span>, <span class="at">t =</span> <span class="st">"year"</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="lightable-classic caption-top table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
@@ -882,6 +874,54 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+</section>
+<section id="bamboo-vs.-plm" class="level2" data-number="7.7">
+<h2 data-number="7.7" class="anchored" data-anchor-id="bamboo-vs.-plm"><span class="header-section-number">7.7</span> bamboo vs.&nbsp;plm</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>bamboo_bal_1 <span class="ot">&lt;-</span> bamboo<span class="sc">::</span><span class="fu">make_panel</span>(unbalanced, <span class="at">index =</span> <span class="fu">c</span>(<span class="st">"firm"</span>, <span class="st">"year"</span>), <span class="at">balance =</span> <span class="st">"entities"</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(bamboo_bal_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 96  6</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>bamboo_bal_2 <span class="ot">&lt;-</span> bamboo<span class="sc">::</span><span class="fu">make_panel</span>(unbalanced, <span class="at">index =</span> <span class="fu">c</span>(<span class="st">"firm"</span>, <span class="st">"year"</span>), <span class="at">balance =</span> <span class="st">"periods"</span>)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(bamboo_bal_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 30  6</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>bamboo_bal_3 <span class="ot">&lt;-</span> bamboo<span class="sc">::</span><span class="fu">make_panel</span>(unbalanced, <span class="at">index =</span> <span class="fu">c</span>(<span class="st">"firm"</span>, <span class="st">"year"</span>), <span class="at">balance =</span> <span class="st">"rows"</span>)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(bamboo_bal_3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 180   6</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>unbalanced_pdata <span class="ot">&lt;-</span> plm<span class="sc">::</span><span class="fu">pdata.frame</span>(unbalanced, <span class="at">index =</span> <span class="fu">c</span>(<span class="st">"firm"</span>, <span class="st">"year"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>plm_bal_1 <span class="ot">&lt;-</span> plm<span class="sc">::</span><span class="fu">make.pbalanced</span>(unbalanced_pdata, <span class="at">balance.type =</span> <span class="st">"shared.individuals"</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(plm_bal_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 96  6</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>plm_bal_2 <span class="ot">&lt;-</span> plm<span class="sc">::</span><span class="fu">make.pbalanced</span>(unbalanced_pdata, <span class="at">balance.type =</span> <span class="st">"shared.times"</span>)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(plm_bal_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 30  6</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>plm_bal_3 <span class="ot">&lt;-</span> plm<span class="sc">::</span><span class="fu">make.pbalanced</span>(unbalanced_pdata, <span class="at">balance.type =</span> <span class="st">"fill"</span>)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(plm_bal_3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 180   6</code></pre>
 </div>
 </div>
 
