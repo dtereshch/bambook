@@ -22,5 +22,5 @@ format:
     df-print: kable
     toc: true
 
-editor: visual
+editor: source
 
