@@ -1,0 +1,68 @@
+---
+title: "Comparison with other packages"
+format: html
+---
+
+Almost all of this package's functionality can be replicated using individual functions from other packages. However, I believe the main advantage of the `bamboo` package is that it combines all the functions necessary for panel data analysis and implements them in a single format. Below is a comparison with individual functions from other packages.
+
+## Set up
+
+Import packages to compare.
+
+```{r, message=FALSE}
+library(bamboo)
+library(gplots)
+library(modelsummary)
+library(pdynmc)
+library(xtsum)
+```
+
+## Data import
+
+Import the built-in dataset with simulated unbalanced panel data.
+
+```{r}
+data(production)
+```
+
+
+## bamboo vs. pdynmc
+
+```{r}
+bamboo::plot_patterns(production, index = c("firm", "year"))
+```
+
+```{r}
+unbalanced <- production[rowSums(!is.na(production[, c("sales", "capital", "labor", "industry")])) > 0, ]
+pdynmc::strucUPD.plot(unbalanced, i.name = "firm", t.name = "year")
+```
+
+## bamboo vs. modelsummary
+
+```{r}
+bamboo::summarize_numeric(production, select = c("capital", "labor"), group = "year")
+```
+
+```{r}
+modelsummary::datasummary(Factor(year) * (capital + labor) ~ N + Mean + Median + SD + Min + Max, data = production)
+```
+
+## bamboo vs. gplots
+
+```{r}
+bamboo::plot_heterogeneity(production, select = "sales", group = "year")
+```
+
+```{r}
+gplots::plotmeans(sales ~ year, production)
+```
+
+## bamboo vs. xtsum
+
+```{r}
+bamboo::decompose_numeric(production, select = c("sales", "capital", "labor"), index = "firm")
+```
+
+```{r}
+xtsum::xtsum(production, variables = c("sales", "capital", "labor"), id = "firm", t = "year", na.rm = TRUE)
+```
