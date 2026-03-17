@@ -117,7 +117,7 @@ decompose_numeric(panel)
 
 ## Factor variables analysis
 
-The last group of functions is aimed at analyzing numeric variables, taking into account the nature of panel data.
+The last group of functions is aimed at analyzing factor (categorical) variables, taking into account the nature of panel data.
 
 Factor variables can be decomposed into between and within components.
 
