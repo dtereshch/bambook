@@ -488,7 +488,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_missing</span>(panel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Analysing all variables: industry, sales, capital, labor, ownership</code></pre>
+<pre><code>Analysing all variables: sales, capital, labor, industry, ownership</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
@@ -502,7 +502,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarize_missing</span>(panel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Analyzing all variables: industry, sales, capital, labor, ownership</code></pre>
+<pre><code>Analyzing all variables: sales, capital, labor, industry, ownership</code></pre>
 </div>
 <div class="cell-output-display">
 <div class="kable-table">
@@ -518,32 +518,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">industry</td>
-<td style="text-align: right;">23</td>
-<td style="text-align: right;">0.128</td>
-<td style="text-align: right;">14</td>
-<td style="text-align: right;">5</td>
-</tr>
-<tr class="even">
 <td style="text-align: left;">sales</td>
 <td style="text-align: right;">26</td>
 <td style="text-align: right;">0.144</td>
 <td style="text-align: right;">15</td>
 <td style="text-align: right;">5</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">capital</td>
 <td style="text-align: right;">26</td>
 <td style="text-align: right;">0.144</td>
 <td style="text-align: right;">17</td>
 <td style="text-align: right;">5</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: left;">labor</td>
 <td style="text-align: right;">26</td>
 <td style="text-align: right;">0.144</td>
 <td style="text-align: right;">16</td>
 <td style="text-align: right;">6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">industry</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">0.128</td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">5</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">ownership</td>
