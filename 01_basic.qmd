@@ -10,7 +10,7 @@ Below is an example showing the basic usage of all the package's functions.
 Import the package.
 
 ```{r}
-library(bamboo)
+library(paneldesc)
 ```
 
 ## Data import

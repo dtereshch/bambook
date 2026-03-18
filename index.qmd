@@ -2,8 +2,6 @@
 title: "About"
 ---
 
-This webbook collects various scenarios for panel data analysis using the `bamboo` R package.
+This webbook collects various scenarios for panel data analysis using the `paneldesc` R package.
 
-The package itself is contained in a separate [GitHub repository](https://github.com/dtereshch/bamboo).
-
-![](images/bamboo_draw.jpeg)
+The package itself is contained in a separate [GitHub repository](https://github.com/dtereshch/paneldesc).

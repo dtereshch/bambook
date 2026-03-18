@@ -3,14 +3,14 @@ title: "Comparison with other packages"
 format: html
 ---
 
-Almost all of this package's functionality can be replicated using individual functions from other packages. However, I believe the main advantage of the `bamboo` package is that it combines all the functions necessary for panel data analysis and implements them in a single format. Below is a comparison with individual functions from other packages.
+Almost all of this package's functionality can be replicated using individual functions from other packages. However, I believe the main advantage of the `paneldesc` package is that it combines all the functions necessary for panel data analysis and implements them in a single format. Below is a comparison with individual functions from other packages.
 
 ## Set up
 
 Import packages to compare.
 
 ```{r, message=FALSE}
-library(bamboo)
+library(paneldesc)
 library(gplots)
 library(modelsummary)
 library(plm)
@@ -33,61 +33,61 @@ unbalanced <- production[rowSums(!is.na(production[, c("sales", "capital", "labo
 ```
 
 
-## bamboo vs. pdynmc
+## paneldesc vs. pdynmc
 
 ```{r}
-bamboo::plot_patterns(production, index = c("firm", "year"))
+paneldesc::plot_patterns(production, index = c("firm", "year"))
 ```
 
 ```{r}
 pdynmc::strucUPD.plot(unbalanced, i.name = "firm", t.name = "year")
 ```
 
-## bamboo vs. modelsummary
+## paneldesc vs. modelsummary
 
 ```{r}
-bamboo::summarize_numeric(production, select = c("capital", "labor"), group = "year")
+paneldesc::summarize_numeric(production, select = c("capital", "labor"), group = "year")
 ```
 
 ```{r}
 modelsummary::datasummary(Factor(year) * (capital + labor) ~ N + Mean + SD + Min + Max, data = production)
 ```
 
-## bamboo vs. gplots
+## paneldesc vs. gplots
 
 ```{r}
-bamboo::plot_heterogeneity(production, select = "sales", group = "year")
+paneldesc::plot_heterogeneity(production, select = "sales", group = "year")
 ```
 
 ```{r}
 gplots::plotmeans(sales ~ year, production)
 ```
 
-## bamboo vs. xtsum
+## paneldesc vs. xtsum
 
 ```{r}
-bamboo::decompose_numeric(production, select = c("sales", "capital", "labor"), index = "firm")
+paneldesc::decompose_numeric(production, select = c("sales", "capital", "labor"), index = "firm")
 ```
 
 ```{r}
 xtsum::xtsum(production, variables = c("sales", "capital", "labor"), id = "firm", t = "year", na.rm = TRUE)
 ```
 
-## bamboo vs. plm
+## paneldesc vs. plm
 
 ```{r}
-bamboo_bal_1 <- bamboo::make_panel(unbalanced, index = c("firm", "year"), balance = "entities")
-dim(bamboo_bal_1)
+paneldesc_bal_1 <- paneldesc::make_panel(unbalanced, index = c("firm", "year"), balance = "entities")
+dim(paneldesc_bal_1)
 ```
 
 ```{r}
-bamboo_bal_2 <- bamboo::make_panel(unbalanced, index = c("firm", "year"), balance = "periods")
-dim(bamboo_bal_2)
+paneldesc_bal_2 <- paneldesc::make_panel(unbalanced, index = c("firm", "year"), balance = "periods")
+dim(paneldesc_bal_2)
 ```
 
 ```{r}
-bamboo_bal_3 <- bamboo::make_panel(unbalanced, index = c("firm", "year"), balance = "rows")
-dim(bamboo_bal_3)
+paneldesc_bal_3 <- paneldesc::make_panel(unbalanced, index = c("firm", "year"), balance = "rows")
+dim(paneldesc_bal_3)
 ```
 
 ```{r}

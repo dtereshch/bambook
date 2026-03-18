@@ -10,7 +10,7 @@ In this example, the package functions are combined in such a way that the resul
 Import the package.
 
 ```{r}
-library(bamboo)
+library(paneldesc)
 ```
 
 ## Data import

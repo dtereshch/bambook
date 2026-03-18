@@ -6,14 +6,14 @@ format: html
 The package can be installed from GitHub using `devtools`.
 
 ```{r, eval=FALSE}
-library(devtools)
-install_github("dtereshch/bamboo") 
+# install.packages("devtools")
+devtools::install_github("dtereshch/paneldesc")
 ```
 
 After that, you can import it in the usual way.
 
 ```{r}
-library(bamboo)
+library(paneldesc)
 ```
 
 All functions of the package have detailed documentation with examples.

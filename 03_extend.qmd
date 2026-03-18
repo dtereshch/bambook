@@ -10,7 +10,7 @@ Typically, package functions include multiple arguments, the different values â€
 Import the package.
 
 ```{r}
-library(bamboo)
+library(paneldesc)
 ```
 
 ## Data import

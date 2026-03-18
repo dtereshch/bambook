@@ -1,2 +1,2 @@
-# bambook
-A book with examples of using the bamboo package
+# paneldesck
+A book with examples of using the paneldesc package

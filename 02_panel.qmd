@@ -10,7 +10,7 @@ Almost all of the package's functions require full or partial specification of a
 Import the package.
 
 ```{r}
-library(bamboo)
+library(paneldesc)
 ```
 
 ## Data import
